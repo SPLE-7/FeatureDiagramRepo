@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
 	<feature name="LibraryManagementSystem"/>
-	<feature name="Base"/>
+	<feature name="Manajemen Koleksi"/>
+	<feature name="Lihat Koleksi"/>
+	<feature name="Tambah Koleksi"/>
+	<feature name="Hapus Koleksi"/>
+	<feature name="Pencarian Buku"/>
+	<feature name="Basic Search"/>
+	<feature name="Advanced Search"/>
+	<feature name="Peminjaman"/>
+	<feature name="Pinjam Buku"/>
+	<feature name="Status"/>
+	<feature name="Tampilan Dark Mode"/>
+	<feature name="Statistik dan Laporan"/>
+	<feature name="Manajemen Keanggotaan"/>
+	<feature name="Wishlist"/>
+	<feature name="Komentar"/>
 </configuration>

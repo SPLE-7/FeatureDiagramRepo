@@ -25,10 +25,10 @@
 			</and>
 			<feature name="Tampilan Dark Mode"/>
 			<feature name="Statistik dan Laporan"/>
-			<or abstract="true" name="Manajemen Keanggotaan">
+			<alt abstract="true" name="Manajemen Keanggotaan">
 				<feature name="Wishlist"/>
 				<feature name="Komentar"/>
-			</or>
+			</alt>
 		</and>
 	</struct>
 </featureModel>
