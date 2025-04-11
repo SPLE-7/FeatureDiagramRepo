@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-	<feature name="LibraryManagementSystem"/>
-	<feature name="Manajemen Koleksi"/>
+	<feature automatic="selected" name="LibraryManagementSystem"/>
+	<feature automatic="selected" name="Manajemen Koleksi"/>
 	<feature name="Lihat Koleksi"/>
 	<feature name="Tambah Koleksi"/>
 	<feature name="Hapus Koleksi"/>
-	<feature name="Pencarian Buku"/>
+	<feature automatic="selected" name="Pencarian Buku"/>
 	<feature name="Basic Search"/>
 	<feature name="Advanced Search"/>
 	<feature name="Peminjaman"/>
