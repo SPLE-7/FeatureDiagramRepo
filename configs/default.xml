@@ -5,10 +5,10 @@
 	<feature name="BukuFisik"/>
 	<feature name="BukuDigital"/>
 	<feature name="Statistik"/>
-	<feature name="DistribusiGenre"/>
-	<feature name="DistribusiPenulis"/>
 	<feature name="PeminjamanBuku"/>
 	<feature name="Review"/>
+	<feature name="DenganKomentar"/>
+	<feature name="DenganBintang"/>
 	<feature name="Wishlist"/>
 	<feature name="RekomendasiBuku"/>
 </configuration>

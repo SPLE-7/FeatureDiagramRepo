@@ -9,11 +9,11 @@ features
 					BukuDigital
 		optional
 			Statistik
-				optional
-					DistribusiGenre
-					DistribusiPenulis
 			PeminjamanBuku
 			Review
+				or
+					DenganKomentar
+					DenganBintang
 			Wishlist
 			RekomendasiBuku
 
