@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature name="LibraryManagementSystem"/>
+	<feature name="DaftarBuku"/>
+	<feature name="BukuFisik"/>
+	<feature name="BukuDigital"/>
+	<feature name="Statistik"/>
+	<feature name="DistribusiGenre"/>
+	<feature name="DistribusiPenulis"/>
+	<feature name="PeminjamanBuku"/>
+	<feature name="Review"/>
+	<feature name="Wishlist"/>
+	<feature name="RekomendasiBuku"/>
+</configuration>
