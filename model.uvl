@@ -12,7 +12,7 @@ features
 				or
 					GenreStatistik
 					AuthorStatistik
-			PeminjamanBuku {abstract true}
+			PeminjamanBuku
 				optional
 					Renewal
 			Review {abstract true}
