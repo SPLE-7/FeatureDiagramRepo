@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-	<feature name="LibraryManagementSystem"/>
-	<feature name="DaftarBuku"/>
-	<feature name="BukuFisik"/>
-	<feature name="BukuDigital"/>
-	<feature name="Statistik"/>
-	<feature name="PeminjamanBuku"/>
-	<feature name="Review"/>
-	<feature name="DenganKomentar"/>
+	<feature automatic="selected" name="LibraryManagementSystem"/>
+	<feature automatic="selected" name="DaftarBuku"/>
+	<feature manual="selected" name="BukuFisik"/>
+	<feature automatic="unselected" name="BukuDigital"/>
+	<feature automatic="selected" manual="selected" name="Statistik"/>
+	<feature manual="selected" name="GenreStatistik"/>
+	<feature name="AuthorStatistik"/>
+	<feature manual="selected" name="PeminjamanBuku"/>
+	<feature name="Renewal"/>
+	<feature automatic="selected" manual="selected" name="Review"/>
+	<feature manual="selected" name="DenganKomentar"/>
 	<feature name="DenganBintang"/>
-	<feature name="Wishlist"/>
-	<feature name="RekomendasiBuku"/>
+	<feature manual="selected" name="Wishlist"/>
+	<feature name="WithNote"/>
+	<feature name="WithStatus"/>
+	<feature name="Rekomendasi"/>
+	<feature name="Genre"/>
+	<feature name="Author"/>
 </configuration>

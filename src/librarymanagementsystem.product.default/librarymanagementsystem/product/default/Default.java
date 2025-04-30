@@ -22,6 +22,26 @@ import vmj.auth.model.RoleResourceFactory;
 import vmj.auth.model.core.UserResource;
 import vmj.auth.model.core.RoleResource;
 
+import LibraryManagementSystem.daftarbuku.DaftarBukuResourceFactory;
+import LibraryManagementSystem.daftarbuku.core.DaftarBukuResource;
+import LibraryManagementSystem.daftarbuku.DaftarBukuServiceFactory;
+import LibraryManagementSystem.daftarbuku.core.DaftarBukuService;
+import LibraryManagementSystem.statistik.StatistikResourceFactory;
+import LibraryManagementSystem.statistik.core.StatistikResource;
+import LibraryManagementSystem.statistik.StatistikServiceFactory;
+import LibraryManagementSystem.statistik.core.StatistikService;
+import LibraryManagementSystem.peminjamanbuku.PeminjamanBukuResourceFactory;
+import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResource;
+import LibraryManagementSystem.peminjamanbuku.PeminjamanBukuServiceFactory;
+import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuService;
+import LibraryManagementSystem.review.ReviewResourceFactory;
+import LibraryManagementSystem.review.core.ReviewResource;
+import LibraryManagementSystem.review.ReviewServiceFactory;
+import LibraryManagementSystem.review.core.ReviewService;
+import LibraryManagementSystem.wishlist.WishlistServiceResourceFactory;
+import LibraryManagementSystem.wishlist.core.WishlistServiceResource;
+import LibraryManagementSystem.wishlist.WishlistServiceServiceFactory;
+import LibraryManagementSystem.wishlist.core.WishlistServiceService;
 
 public class Default {
 
@@ -60,6 +80,29 @@ public class Default {
         configuration.addAnnotatedClass(vmj.auth.model.core.UserImpl.class);
         configuration.addAnnotatedClass(vmj.auth.model.passworded.UserImpl.class);
 
+		configuration.addAnnotatedClass(LibraryManagementSystem.daftarbuku.core.DaftarBuku.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.daftarbuku.core.DaftarBukuComponent.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.daftarbuku.core.DaftarBukuDecorator.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.daftarbuku.core.DaftarBukuImpl.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.daftarbuku.bukufisik.DaftarBukuImpl.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.statistik.core.Statistik.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.statistik.core.StatistikComponent.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.statistik.core.StatistikDecorator.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.statistik.core.StatistikImpl.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.statistik.genrestatistik.StatistikImpl.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.peminjamanbuku.core.PeminjamanBuku.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuComponent.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuDecorator.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.review.core.Review.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.review.core.ReviewComponent.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.review.core.ReviewDecorator.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.review.core.ReviewImpl.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.review.reviewkomentar.ReviewImpl.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.wishlist.core.WishlistService.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.wishlist.core.WishlistServiceComponent.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.wishlist.core.WishlistServiceDecorator.class);
+		configuration.addAnnotatedClass(LibraryManagementSystem.wishlist.core.WishlistServiceImpl.class);
 
 		Map<String, Object> featureModelMappings = mappingFeatureModel();
 		Gson gson = new Gson();
@@ -98,7 +141,119 @@ public class Default {
 			,
 		    UserResourceFactory.createUserResource("vmj.auth.model.core.UserResourceImpl"));
 
+        DaftarBukuService daftarbukuDaftarBuku2Service = DaftarBukuServiceFactory
+            .createDaftarBukuService("LibraryManagementSystem.daftarbuku.core.DaftarBukuServiceImpl"
+            	);		
 
+        DaftarBukuResource daftarbukuDaftarBuku2Resource = DaftarBukuResourceFactory
+            .createDaftarBukuResource("LibraryManagementSystem.daftarbuku.core.DaftarBukuResourceImpl"
+                );
+			
+        DaftarBukuService bukufisikDaftarBuku2Service = DaftarBukuServiceFactory
+            .createDaftarBukuService("LibraryManagementSystem.daftarbuku.bukufisik.DaftarBukuServiceImpl"
+            	, daftarbukuDaftarBuku2Service);		
+
+        DaftarBukuResource bukufisikDaftarBuku2Resource = DaftarBukuResourceFactory
+            .createDaftarBukuResource("LibraryManagementSystem.daftarbuku.bukufisik.DaftarBukuResourceImpl"
+                , daftarbukuDaftarBuku2Resource, daftarbukuDaftarBuku2Service);
+			
+        StatistikService statistikStatistik2Service = StatistikServiceFactory
+            .createStatistikService("LibraryManagementSystem.statistik.core.StatistikServiceImpl"
+            	);		
+
+        StatistikResource statistikStatistik2Resource = StatistikResourceFactory
+            .createStatistikResource("LibraryManagementSystem.statistik.core.StatistikResourceImpl"
+                );
+			
+        StatistikService genrestatistikStatistik2Service = StatistikServiceFactory
+            .createStatistikService("LibraryManagementSystem.statistik.genrestatistik.StatistikServiceImpl"
+            	, statistikStatistik2Service);		
+
+        StatistikResource genrestatistikStatistik2Resource = StatistikResourceFactory
+            .createStatistikResource("LibraryManagementSystem.statistik.genrestatistik.StatistikResourceImpl"
+                , statistikStatistik2Resource, statistikStatistik2Service);
+			
+        PeminjamanBukuService peminjamanbukuPeminjamanBuku2Service = PeminjamanBukuServiceFactory
+            .createPeminjamanBukuService("LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuServiceImpl"
+            	);		
+
+        PeminjamanBukuResource peminjamanbukuPeminjamanBuku2Resource = PeminjamanBukuResourceFactory
+            .createPeminjamanBukuResource("LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResourceImpl"
+                );
+			
+        ReviewService reviewReview2Service = ReviewServiceFactory
+            .createReviewService("LibraryManagementSystem.review.core.ReviewServiceImpl"
+            	);		
+
+        ReviewResource reviewReview2Resource = ReviewResourceFactory
+            .createReviewResource("LibraryManagementSystem.review.core.ReviewResourceImpl"
+                );
+			
+        ReviewService reviewkomentarReview2Service = ReviewServiceFactory
+            .createReviewService("LibraryManagementSystem.review.reviewkomentar.ReviewServiceImpl"
+            	, reviewReview2Service);		
+
+        ReviewResource reviewkomentarReview2Resource = ReviewResourceFactory
+            .createReviewResource("LibraryManagementSystem.review.reviewkomentar.ReviewResourceImpl"
+                , reviewReview2Resource, reviewReview2Service);
+			
+        WishlistServiceService wishlistWishlist2Service = WishlistServiceServiceFactory
+            .createWishlistServiceService("LibraryManagementSystem.wishlist.core.WishlistServiceServiceImpl"
+            	);		
+
+        WishlistServiceResource wishlistWishlistService2Resource = WishlistServiceResourceFactory
+            .createWishlistServiceResource("LibraryManagementSystem.wishlist.core.WishlistServiceResourceImpl"
+                );
+			
+
+		System.out.println("wishlistWishlistService2Resource endpoints binding");
+		Router.route(wishlistWishlistService2Resource);
+		
+		System.out.println("wishlistWishlist2Service endpoints binding");
+		Router.route(wishlistWishlist2Service);
+		
+		System.out.println("reviewkomentarReview2Resource endpoints binding");
+		Router.route(reviewkomentarReview2Resource);
+		
+		System.out.println("reviewkomentarReview2Service endpoints binding");
+		Router.route(reviewkomentarReview2Service);
+		
+		System.out.println("reviewReview2Resource endpoints binding");
+		Router.route(reviewReview2Resource);
+		
+		System.out.println("reviewReview2Service endpoints binding");
+		Router.route(reviewReview2Service);
+		
+		System.out.println("peminjamanbukuPeminjamanBuku2Resource endpoints binding");
+		Router.route(peminjamanbukuPeminjamanBuku2Resource);
+		
+		System.out.println("peminjamanbukuPeminjamanBuku2Service endpoints binding");
+		Router.route(peminjamanbukuPeminjamanBuku2Service);
+		
+		System.out.println("genrestatistikStatistik2Resource endpoints binding");
+		Router.route(genrestatistikStatistik2Resource);
+		
+		System.out.println("genrestatistikStatistik2Service endpoints binding");
+		Router.route(genrestatistikStatistik2Service);
+		
+		System.out.println("statistikStatistik2Resource endpoints binding");
+		Router.route(statistikStatistik2Resource);
+		
+		System.out.println("statistikStatistik2Service endpoints binding");
+		Router.route(statistikStatistik2Service);
+		
+		System.out.println("bukufisikDaftarBuku2Resource endpoints binding");
+		Router.route(bukufisikDaftarBuku2Resource);
+		
+		System.out.println("bukufisikDaftarBuku2Service endpoints binding");
+		Router.route(bukufisikDaftarBuku2Service);
+		
+		System.out.println("daftarbukuDaftarBuku2Resource endpoints binding");
+		Router.route(daftarbukuDaftarBuku2Resource);
+		
+		System.out.println("daftarbukuDaftarBuku2Service endpoints binding");
+		Router.route(daftarbukuDaftarBuku2Service);
+		
 		System.out.println("authResource endpoints binding");
 		Router.route(userPasswordedResource);
 		Router.route(roleResource);
@@ -107,6 +262,64 @@ public class Default {
 
 	private static Map<String, Object> mappingFeatureModel() {
 		Map<String, Object> featureModelMappings = new HashMap<>();
+
+		featureModelMappings.put(
+            LibraryManagementSystem.daftarbuku.core.DaftarBukuComponent.class.getName(),
+			new HashMap<String, String[]>() {{
+				put("components", new String[] {
+					LibraryManagementSystem.daftarbuku.core.DaftarBukuComponent.class.getName()
+				});
+				put("deltas", new String[] {
+					LibraryManagementSystem.daftarbuku.bukufisik.DaftarBukuImpl.class.getName()
+				});
+			}}
+        );
+
+		featureModelMappings.put(
+            LibraryManagementSystem.statistik.core.StatistikComponent.class.getName(),
+			new HashMap<String, String[]>() {{
+				put("components", new String[] {
+					LibraryManagementSystem.statistik.core.StatistikComponent.class.getName()
+				});
+				put("deltas", new String[] {
+					LibraryManagementSystem.statistik.genrestatistik.StatistikImpl.class.getName()
+				});
+			}}
+        );
+
+		featureModelMappings.put(
+            LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuComponent.class.getName(),
+			new HashMap<String, String[]>() {{
+				put("components", new String[] {
+					LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuComponent.class.getName()
+				});
+				put("deltas", new String[] {
+				});
+			}}
+        );
+
+		featureModelMappings.put(
+            LibraryManagementSystem.review.core.ReviewComponent.class.getName(),
+			new HashMap<String, String[]>() {{
+				put("components", new String[] {
+					LibraryManagementSystem.review.core.ReviewComponent.class.getName()
+				});
+				put("deltas", new String[] {
+					LibraryManagementSystem.review.reviewkomentar.ReviewImpl.class.getName()
+				});
+			}}
+        );
+
+		featureModelMappings.put(
+            LibraryManagementSystem.wishlist.core.WishlistServiceComponent.class.getName(),
+			new HashMap<String, String[]>() {{
+				put("components", new String[] {
+					LibraryManagementSystem.wishlist.core.WishlistServiceComponent.class.getName()
+				});
+				put("deltas", new String[] {
+				});
+			}}
+        );
 
 		return featureModelMappings;
 	}
