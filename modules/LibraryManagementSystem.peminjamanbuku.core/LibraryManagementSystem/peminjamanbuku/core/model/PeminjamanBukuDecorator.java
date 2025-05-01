@@ -18,6 +18,7 @@ public abstract class PeminjamanBukuDecorator extends PeminjamanBukuComponent{
 		super();
 		this.record = record;
 		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();
+	}
 		
 	public PeminjamanBukuDecorator (PeminjamanBukuComponent record) {
 		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();
@@ -34,8 +35,6 @@ public abstract class PeminjamanBukuDecorator extends PeminjamanBukuComponent{
 		this.record = record;	
 		this.objectName=objectName;
 	}
-
-	public PeminjamanBukuDecorator() { }
 
 	public UUID getIdPeminjamanBuku() {
 		return record.getIdPeminjamanBuku();
@@ -61,7 +60,6 @@ public abstract class PeminjamanBukuDecorator extends PeminjamanBukuComponent{
 	public void setTanggalPengembalian(Date tanggalPengembalian) {
 		record.setTanggalPengembalian(tanggalPengembalian);
 	}
-
 
 	public HashMap<String, Object> toHashMap() {
         return this.record.toHashMap();

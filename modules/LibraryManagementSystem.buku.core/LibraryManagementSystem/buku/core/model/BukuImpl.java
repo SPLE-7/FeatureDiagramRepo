@@ -30,7 +30,7 @@ public class BukuImpl extends BukuComponent {
 	}
 
 	public BukuImpl(String judulBuku, String penulis, String penerbit, int jumlahHalaman, String deskripsiBuku, String genre) {
-		this.idBuku =  idBuku.randomUUID();;
+		this.idBuku =  idBuku.randomUUID();
 		this.judulBuku = judulBuku;
 		this.penulis = penulis;
 		this.penerbit = penerbit;

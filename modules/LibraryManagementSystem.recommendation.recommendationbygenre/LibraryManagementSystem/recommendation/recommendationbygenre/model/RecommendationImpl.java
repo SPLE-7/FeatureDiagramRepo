@@ -16,17 +16,12 @@ import LibraryManagementSystem.recommendation.core.RecommendationComponent;
 @Table(name="recommendation_recommendationbygenre")
 public class RecommendationImpl extends RecommendationDecorator {
 
-	public RecommendationImpl(
-        super();
-        this.objectName = RecommendationImpl.class.getName();
-    }
-    
     public RecommendationImpl() {
     	super();
 		this.objectName = RecommendationImpl.class.getName();
     }
 	
-	public RecommendationImpl(RecommendationComponent record, ) {
+	public RecommendationImpl(RecommendationComponent record) {
 		super(record);
 		this.objectName = RecommendationImpl.class.getName();
 	}

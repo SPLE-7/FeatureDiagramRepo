@@ -13,6 +13,7 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
         super(record);
     }
 
+	// TODO: BELOM SEMUA
     // @Restriced(permission = "")
     @Route(url="call/renewal/save")
     public List<HashMap<String,Object>> save(VMJExchange vmjExchange){

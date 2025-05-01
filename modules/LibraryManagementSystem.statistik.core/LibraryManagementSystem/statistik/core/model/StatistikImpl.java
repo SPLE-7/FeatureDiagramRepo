@@ -23,11 +23,6 @@ public class StatistikImpl extends StatistikComponent {
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
-	public StatistikImpl(Buku daftarbukuimpl) {
-		this. =  .randomUUID();;
-		this.daftarbukuimpl = daftarbukuimpl;
-	}
-
 	public StatistikImpl() { }
 
 

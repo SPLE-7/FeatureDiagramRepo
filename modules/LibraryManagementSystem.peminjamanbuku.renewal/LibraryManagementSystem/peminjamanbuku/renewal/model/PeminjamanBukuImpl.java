@@ -17,7 +17,7 @@ import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuComponent;
 public class PeminjamanBukuImpl extends PeminjamanBukuDecorator {
 
 	public int renewalCount;
-	public PeminjamanBukuImpl(
+	public PeminjamanBukuImpl() {
         super();
         this.objectName = PeminjamanBukuImpl.class.getName();
     }

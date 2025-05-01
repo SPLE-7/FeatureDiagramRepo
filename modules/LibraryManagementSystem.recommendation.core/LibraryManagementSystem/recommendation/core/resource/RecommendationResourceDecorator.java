@@ -11,27 +11,11 @@ public abstract class RecommendationResourceDecorator extends RecommendationReso
         this.record = record;
     }
 
-    public Recommendation createRecommendation(VMJExchange vmjExchange){
-		return record.createRecommendation(vmjExchange);
-	}
-
-    public HashMap<String, Object> updateRecommendation(VMJExchange vmjExchange){
-		return record.updateRecommendation(vmjExchange);
-	}
-
     public HashMap<String, Object> getRecommendation(VMJExchange vmjExchange){
 		return record.getRecommendation(vmjExchange);
 	}
 
     public List<HashMap<String,Object>> getAllRecommendation(VMJExchange vmjExchange){
 		return record.getAllRecommendation(vmjExchange);
-	}
-
-    public List<HashMap<String,Object>> deleteRecommendation(VMJExchange vmjExchange){
-		return record.deleteRecommendation(vmjExchange);
-	}
-
-	public void getRecommendation() {
-		return record.getRecommendation();
 	}
 }

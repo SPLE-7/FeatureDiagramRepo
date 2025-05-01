@@ -13,6 +13,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
         super(record);
     }
 
+	// TODO: BELOM SEMUA
     // @Restriced(permission = "")
     @Route(url="call/wishlistwithstatus/save")
     public List<HashMap<String,Object>> save(VMJExchange vmjExchange){

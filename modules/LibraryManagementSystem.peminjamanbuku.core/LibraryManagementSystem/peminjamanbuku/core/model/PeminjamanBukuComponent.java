@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @Table(name="peminjamanbuku_comp")
@@ -17,8 +19,14 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	@Id
 	protected UUID idPeminjamanBuku; 
 	protected String status;
+
+	// AMBIL DARI EXTERNAL LIBRARY
+	@ManyToOne(targetEntity=LibraryManagementSystem.user.core.UserComponent.class)
 	public User akunimpl;
+
+	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
+
 	protected Date tanggalPeminjaman;
 	protected Date tanggalPengembalian;
 	protected String objectName = PeminjamanBukuComponent.class.getName();

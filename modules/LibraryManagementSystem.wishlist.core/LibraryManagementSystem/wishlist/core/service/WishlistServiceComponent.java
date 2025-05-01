@@ -6,21 +6,22 @@ import vmj.routing.route.VMJExchange;
 //add other required packages
 
 public abstract class WishlistServiceComponent implements WishlistService{
-	protected RepositoryUtil<Wishlist> Repository;
+	protected RepositoryUtil<Wishlist> wishlistRepository;
+    protected RepositoryUtil<Buku> bukuRepository;
+    protected RepositoryUtil<User> userRepository;
+
 
     public WishlistServiceComponent(){
-        this.Repository = new RepositoryUtil<Wishlist>(LibraryManagementSystem.wishlist.core.WishlistComponent.class);
+        this.wishlistRepository = new RepositoryUtil<Wishlist>(LibraryManagementSystem.wishlist.core.WishlistComponent.class);
+        this.bukuRepository = new RepositoryUtil<Wishlist>(LibraryManagementSystem.buku.core.BukuComponent.class);
+        this.userRepository = new RepositoryUtil<User>(LibraryManagementSystem.user.core.UserComponent.class);
     }	
 
-    public abstract List<HashMap<String,Object>> saveWishlist(VMJExchange vmjExchange);
     public abstract Wishlist createWishlist(Map<String, Object> requestBodye);
-	public abstract Wishlist createWishlist(Map<String, Object> requestBody, Map<String, Object> response);    
-	public abstract HashMap<String, Object> updateWishlist(Map<String, Object> requestBody);
     public abstract HashMap<String, Object> getWishlist(Map<String, Object> requestBody);
     public abstract List<HashMap<String,Object>> getAllWishlist(Map<String, Object> requestBody);
     public abstract List<HashMap<String,Object>> transformListToHashMap(List<Wishlist> List);
     public abstract List<HashMap<String,Object>> deleteWishlist(Map<String, Object> requestBody);
-	public abstract HashMap<String, Object> getWishlistById(int id);
 
 	public abstract void addBookToWishlist();
 

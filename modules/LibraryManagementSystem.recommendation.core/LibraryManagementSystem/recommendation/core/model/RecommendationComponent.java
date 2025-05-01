@@ -14,11 +14,12 @@ import javax.persistence.Table;
 @Table(name="recommendation_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class RecommendationComponent implements Recommendation{
-	@Id
-	
+
+	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
 	@ManyToOne(targetEntity=LibraryManagementSystem.user.core.UserComponent.class)
 	public User akunimpl;
+
 	protected String objectName = RecommendationComponent.class.getName();
 
 	public RecommendationComponent() {
@@ -26,7 +27,7 @@ public abstract class RecommendationComponent implements Recommendation{
 	} 
 
 	public RecommendationComponent(
-        Buku daftarbukuimpl, UserImpl akunimpl
+        Buku daftarbukuimpl, User akunimpl
     ) {
         this.daftarbukuimpl = daftarbukuimpl;
         this.akunimpl = akunimpl;
@@ -35,8 +36,8 @@ public abstract class RecommendationComponent implements Recommendation{
 	public abstract Buku getDaftarbukuimpl();
 	public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
 	
-	public abstract UserImpl getAkunimpl();
-	public abstract void setAkunimpl(UserImpl akunimpl);
+	public abstract User getAkunimpl();
+	public abstract void setAkunimpl(User akunimpl);
 	
  
 	public abstract void getRecommendation();

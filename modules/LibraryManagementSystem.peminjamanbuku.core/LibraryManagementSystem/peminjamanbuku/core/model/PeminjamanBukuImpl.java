@@ -29,7 +29,7 @@ public class PeminjamanBukuImpl extends PeminjamanBukuComponent {
 	}
 
 	public PeminjamanBukuImpl(String status, User akunimpl, Buku daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian) {
-		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();;
+		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();
 		this.status = status;
 		this.akunimpl = akunimpl;
 		this.daftarbukuimpl = daftarbukuimpl;

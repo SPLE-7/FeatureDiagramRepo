@@ -13,6 +13,7 @@ public class ReviewResourceImpl extends ReviewResourceDecorator {
         super(record);
     }
 
+	// TODO: BELOM SEMUA
     // @Restriced(permission = "")
     @Route(url="call/reviewkomentar/save")
     public List<HashMap<String,Object>> save(VMJExchange vmjExchange){

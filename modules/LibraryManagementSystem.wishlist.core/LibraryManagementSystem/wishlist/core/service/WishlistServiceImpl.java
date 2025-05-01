@@ -15,77 +15,39 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.wishlist.WishlistFactory;
-import prices.auth.vmj.annotations.Restricted;
+import vmj.auth.annotations.Restricted;
 //add other required packages
 
 public class WishlistServiceImpl extends WishlistServiceComponent{
 
-    public List<HashMap<String,Object>> saveWishlist(VMJExchange vmjExchange){
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		Wishlist wishlist = createWishlist(vmjExchange);
-		wishlistRepository.saveObject(wishlist);
-		return getAllWishlist(vmjExchange);
-	}
-
     public Wishlist createWishlist(Map<String, Object> requestBody){
 		
+		// TODO: MASIH BINGUNG
+		User akunimpl = userRepository.getObject(requestBody.get("id"));
+		Buku daftarbukuimpl = bukuRepository.getObject(requestBody.get("idBuku"));
 		//to do: fix association attributes
-		Wishlist Wishlist = WishlistFactory.createWishlist(
+		Wishlist wishlist = WishlistFactory.createWishlist(
 			"LibraryManagementSystem.wishlist.core.WishlistImpl",
 		akunimpl
-		, daftarbukuimpl
-		, akunimpl
-		, akunimpl
-		);
-		Repository.saveObject(wishlist);
+		, daftarbukuimpl);
+		wishlistRepository.saveObject(wishlist);
 		return wishlist;
-	}
-
-    public Wishlist createWishlist(Map<String, Object> requestBody, int id){
-		
-		//to do: fix association attributes
-		
-		Wishlist wishlist = WishlistFactory.createWishlist("LibraryManagementSystem.wishlist.core.WishlistImpl", akunimpl, daftarbukuimpl, akunimpl, akunimpl);
-		return wishlist;
-	}
-
-    public HashMap<String, Object> updateWishlist(Map<String, Object> requestBody){
-		String idStr = (String) requestBody.get("");
-		int id = Integer.parseInt(idStr);
-		Wishlist wishlist = Repository.getObject(id);
-		
-		
-		Repository.updateObject(wishlist);
-		
-		//to do: fix association attributes
-		
-		return wishlist.toHashMap();
-		
 	}
 
     public HashMap<String, Object> getWishlist(Map<String, Object> requestBody){
 		List<HashMap<String, Object>> wishlistList = getAllWishlist("wishlist_impl");
 		for (HashMap<String, Object> wishlist : wishlistList){
-			int record_id = ((Double) wishlist.get("record_id")).intValue();
-			if (record_id == id){
+			UUID recordId = UUID.fromString((String) wishlist.get("id"));
+			if (record_id.equals(requestBody.get("id"))){
 				return wishlist;
 			}
 		}
 		return null;
 	}
 
-	public HashMap<String, Object> getWishlistById(int id){
-		String idStr = vmjExchange.getGETParam(""); 
-		int id = Integer.parseInt(idStr);
-		Wishlist wishlist = wishlistRepository.getObject(id);
-		return wishlist.toHashMap();
-	}
-
     public List<HashMap<String,Object>> getAllWishlist(Map<String, Object> requestBody){
 		String table = (String) requestBody.get("table_name");
-		List<Wishlist> List = Repository.getAllObject(table);
+		List<Wishlist> List = wishlistRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}
 
@@ -99,9 +61,8 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 	}
 
     public List<HashMap<String,Object>> deleteWishlist(Map<String, Object> requestBody){
-		String idStr = ((String) requestBody.get("id"));
-		int id = Integer.parseInt(idStr);
-		Repository.deleteObject(id);
+		UUID recordId = UUID.fromString((String) requestBody.get("id"));
+		wishlistRepository.deleteObject(recordId);
 		return getAllWishlist(requestBody);
 	}
 

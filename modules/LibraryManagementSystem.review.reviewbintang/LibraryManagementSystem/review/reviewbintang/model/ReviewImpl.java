@@ -17,7 +17,7 @@ import LibraryManagementSystem.review.core.ReviewComponent;
 public class ReviewImpl extends ReviewDecorator {
 
 	protected int starValue;
-	public ReviewImpl(
+	public ReviewImpl() {
         super();
         this.objectName = ReviewImpl.class.getName();
     }

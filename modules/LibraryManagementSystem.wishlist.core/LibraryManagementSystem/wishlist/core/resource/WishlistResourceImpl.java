@@ -5,7 +5,7 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.wishlist.WishlistFactory;
-//import prices.auth.vmj.annotations.Restricted;
+import vmj.auth.annotations.Restricted;
 //add other required packages
 
 public class WishlistResourceImpl extends WishlistResourceComponent{
@@ -21,17 +21,6 @@ public class WishlistResourceImpl extends WishlistResourceComponent{
 			return result.toHashMap();
 		}
 		throw new NotFoundException("Route tidak ditemukan");
-	}
-
-    // @Restriced(permission = "")
-    @Route(url="call/wishlist/update")
-    public HashMap<String, Object> updateWishlist(VMJExchange vmjExchange){
-		Map<String, Object> requestBody = vmjExchange.getPayload(); 
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")){
-			return null;
-		}
-		return wishlistServiceImpl.updateWishlist(requestBody);
-		
 	}
 
 	// @Restriced(permission = "")

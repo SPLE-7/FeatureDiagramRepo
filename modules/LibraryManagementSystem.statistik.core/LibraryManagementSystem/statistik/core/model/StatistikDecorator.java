@@ -14,28 +14,19 @@ public abstract class StatistikDecorator extends StatistikComponent{
     @OneToOne(cascade=CascadeType.ALL)
 	protected StatistikComponent record;
 
-	public StatistikDecorator () {
+	public StatistikDecorator() {
 		super();
 		this.record = record;
-		this. =  .randomUUID();
+	}
 		
 	public StatistikDecorator (StatistikComponent record) {
-		this. =  .randomUUID();
-		this.record = record;
-	}
-
-	public StatistikDecorator (, StatistikComponent record) {
-		this. =  ;
 		this.record = record;
 	}
 	
 	public StatistikDecorator (StatistikComponent record, String objectName) {
-		this. =  .randomUUID();
 		this.record = record;	
 		this.objectName=objectName;
 	}
-
-	public StatistikDecorator() { }
 
 
 	public int hitungTotalBuku() {

@@ -17,7 +17,7 @@ import LibraryManagementSystem.wishlist.core.WishlistComponent;
 public class WishlistImpl extends WishlistDecorator {
 
 	public Map<UUID, String> status;
-	public WishlistImpl(
+	public WishlistImpl() {
         super();
         this.objectName = WishlistImpl.class.getName();
     }

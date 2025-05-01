@@ -15,19 +15,10 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.buku.BukuFactory;
-import prices.auth.vmj.annotations.Restricted;
+import vmj.auth.annotations.Restricted;
 //add other required packages
 
 public class BukuServiceImpl extends BukuServiceComponent{
-
-    public List<HashMap<String,Object>> saveBuku(VMJExchange vmjExchange){
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		Buku buku = createBuku(vmjExchange);
-		bukuRepository.saveObject(buku);
-		return getAllBuku(vmjExchange);
-	}
 
     public Buku createBuku(Map<String, Object> requestBody){
 		String judulBuku = (String) requestBody.get("judulBuku");
@@ -39,9 +30,8 @@ public class BukuServiceImpl extends BukuServiceComponent{
 		String genre = (String) requestBody.get("genre");
 		
 		//to do: fix association attributes
-		Buku Buku = BukuFactory.createBuku(
-			"LibraryManagementSystem.buku.core.BukuImpl",
-		idBuku
+		Buku buku = BukuFactory.createBuku(
+			"LibraryManagementSystem.buku.core.BukuImpl"
 		, judulBuku
 		, penulis
 		, penerbit
@@ -49,67 +39,27 @@ public class BukuServiceImpl extends BukuServiceComponent{
 		, deskripsiBuku
 		, genre
 		);
-		Repository.saveObject(buku);
+		bukuRepository.saveObject(buku);
 		return buku;
-	}
-
-    public Buku createBuku(Map<String, Object> requestBody, int id){
-		String judulBuku = (String) vmjExchange.getRequestBodyForm("judulBuku");
-		String penulis = (String) vmjExchange.getRequestBodyForm("penulis");
-		String penerbit = (String) vmjExchange.getRequestBodyForm("penerbit");
-		String jumlahHalamanStr = (String) vmjExchange.getRequestBodyForm("jumlahHalaman");
-		int jumlahHalaman = Integer.parseInt(jumlahHalamanStr);
-		String deskripsiBuku = (String) vmjExchange.getRequestBodyForm("deskripsiBuku");
-		String genre = (String) vmjExchange.getRequestBodyForm("genre");
-		
-		//to do: fix association attributes
-		
-		Buku buku = BukuFactory.createBuku("LibraryManagementSystem.buku.core.BukuImpl", judulBuku, penulis, penerbit, jumlahHalaman, deskripsiBuku, genre);
-		return buku;
-	}
-
-    public HashMap<String, Object> updateBuku(Map<String, Object> requestBody){
-		String idStr = (String) requestBody.get("idBuku");
-		int id = Integer.parseInt(idStr);
-		Buku buku = Repository.getObject(id);
-		
-		buku.setJudulBuku((String) requestBody.get("judulBuku"));
-		buku.setPenulis((String) requestBody.get("penulis"));
-		buku.setPenerbit((String) requestBody.get("penerbit"));
-		String jumlahHalamanStr = (String) requestBody.get("jumlahHalaman");
-		buku.setJumlahHalaman(Integer.parseInt(jumlahHalamanStr));
-		buku.setDeskripsiBuku((String) requestBody.get("deskripsiBuku"));
-		buku.setGenre((String) requestBody.get("genre"));
-		
-		Repository.updateObject(buku);
-		
-		//to do: fix association attributes
-		
-		return buku.toHashMap();
-		
 	}
 
     public HashMap<String, Object> getBuku(Map<String, Object> requestBody){
-		List<HashMap<String, Object>> bukuList = getAllBuku("buku_impl");
+		// TODO:Nama tabel
+		List<HashMap<String, Object>> bukuList = getAllBuku(requestBody);
 		for (HashMap<String, Object> buku : bukuList){
-			int record_id = ((Double) buku.get("record_id")).intValue();
-			if (record_id == id){
+			UUID recordId = UUID.fromString((String) buku.get("idBuku"));
+			// TODO:Masih bingung
+			if (recordId.equals(requestBody.get("idBuku"))) {
 				return buku;
 			}
 		}
 		return null;
 	}
 
-	public HashMap<String, Object> getBukuById(int id){
-		String idStr = vmjExchange.getGETParam("idBuku"); 
-		int id = Integer.parseInt(idStr);
-		Buku buku = bukuRepository.getObject(id);
-		return buku.toHashMap();
-	}
-
     public List<HashMap<String,Object>> getAllBuku(Map<String, Object> requestBody){
+		// TODO:Nama tabel
 		String table = (String) requestBody.get("table_name");
-		List<Buku> List = Repository.getAllObject(table);
+		List<Buku> List = bukuRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}
 
@@ -123,9 +73,9 @@ public class BukuServiceImpl extends BukuServiceComponent{
 	}
 
     public List<HashMap<String,Object>> deleteBuku(Map<String, Object> requestBody){
-		String idStr = ((String) requestBody.get("id"));
-		int id = Integer.parseInt(idStr);
-		Repository.deleteObject(id);
+		String idStr = ((String) requestBody.get("idBuku"));
+		UUID recordId = UUID.fromString(idStr);
+		bukuRepository.deleteObject(recordId);
 		return getAllBuku(requestBody);
 	}
 

@@ -6,7 +6,7 @@ import java.util.*;
 public interface Recommendation {
 	public Buku getDaftarbukuimpl();
 	public void setDaftarbukuimpl(Buku daftarbukuimpl);
-	public UserImpl getAkunimpl();
-	public void setAkunimpl(UserImpl akunimpl);
+	public User getAkunimpl();
+	public void setAkunimpl(User akunimpl);
 	HashMap<String, Object> toHashMap();
 }

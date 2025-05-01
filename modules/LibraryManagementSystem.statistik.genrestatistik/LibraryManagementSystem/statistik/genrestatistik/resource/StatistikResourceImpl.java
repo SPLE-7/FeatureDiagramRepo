@@ -13,6 +13,7 @@ public class StatistikResourceImpl extends StatistikResourceDecorator {
         super(record);
     }
 
+	// TODO: BELOM SEMUA
     // @Restriced(permission = "")
     @Route(url="call/genrestatistik/save")
     public List<HashMap<String,Object>> save(VMJExchange vmjExchange){

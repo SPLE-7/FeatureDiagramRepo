@@ -16,21 +16,15 @@ import LibraryManagementSystem.statistik.core.StatistikComponent;
 @Table(name="statistik_genrestatistik")
 public class StatistikImpl extends StatistikDecorator {
 
-	public StatistikImpl(
+	public StatistikImpl() {
         super();
         this.objectName = StatistikImpl.class.getName();
     }
-    
-    public StatistikImpl() {
-    	super();
-		this.objectName = StatistikImpl.class.getName();
-    }
 	
-	public StatistikImpl(StatistikComponent record, ) {
+	public StatistikImpl(StatistikComponent record) {
 		super(record);
 		this.objectName = StatistikImpl.class.getName();
 	}
-
 
 	public int hitungTotalBuku() {
 		// TODO: implement this method

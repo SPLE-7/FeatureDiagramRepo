@@ -13,6 +13,7 @@ public class BukuResourceImpl extends BukuResourceDecorator {
         super(record);
     }
 
+	// TODO: BELOM SEMUA
     // @Restriced(permission = "")
     @Route(url="call/bukudigital/save")
     public List<HashMap<String,Object>> save(VMJExchange vmjExchange){

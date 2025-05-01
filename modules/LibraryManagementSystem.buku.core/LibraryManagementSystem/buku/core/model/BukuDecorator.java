@@ -18,7 +18,8 @@ public abstract class BukuDecorator extends BukuComponent{
 		super();
 		this.record = record;
 		this.idBuku =  idBuku.randomUUID();
-		
+	}
+
 	public BukuDecorator (BukuComponent record) {
 		this.idBuku =  idBuku.randomUUID();
 		this.record = record;
@@ -34,8 +35,6 @@ public abstract class BukuDecorator extends BukuComponent{
 		this.record = record;	
 		this.objectName=objectName;
 	}
-
-	public BukuDecorator() { }
 
 	public UUID getIdBuku() {
 		return record.getIdBuku();
@@ -79,7 +78,6 @@ public abstract class BukuDecorator extends BukuComponent{
 	public void setGenre(String genre) {
 		record.setGenre(genre);
 	}
-
 
 	public HashMap<String, Object> toHashMap() {
         return this.record.toHashMap();

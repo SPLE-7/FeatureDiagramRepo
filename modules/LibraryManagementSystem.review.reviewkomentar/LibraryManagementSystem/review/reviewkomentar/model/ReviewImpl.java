@@ -16,7 +16,7 @@ import LibraryManagementSystem.review.core.ReviewComponent;
 @Table(name="review_reviewkomentar")
 public class ReviewImpl extends ReviewDecorator {
 
-	public ReviewImpl(
+	public ReviewImpl() {
         super();
         this.objectName = ReviewImpl.class.getName();
     }

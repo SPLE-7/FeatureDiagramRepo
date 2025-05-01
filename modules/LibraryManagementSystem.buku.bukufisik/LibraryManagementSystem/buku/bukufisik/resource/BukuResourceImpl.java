@@ -9,59 +9,21 @@ import LibraryManagementSystem.buku.core.BukuImpl;
 import LibraryManagementSystem.buku.core.BukuResourceComponent;
 
 public class BukuResourceImpl extends BukuResourceDecorator {
-    public BukuResourceImpl (BukuResourceComponent record) {
+    private BukuServiceImpl bukuServiceImpl;
+	
+	public BukuResourceImpl (BukuResourceComponent record, BukuServiceComponent bukuServiceComponent) {
         super(record);
+		this.bukuServiceImpl = new BukuServiceImpl(bukuServiceComponent);
     }
 
-    // @Restriced(permission = "")
-    @Route(url="call/bukufisik/save")
-    public List<HashMap<String,Object>> save(VMJExchange vmjExchange){
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		  = create(vmjExchange);
-		Repository.saveObject();
-		return getAll(vmjExchange);
-	}
+	// TODO:BELOM SEMUA
 
+	@Route(url="call/bukufisik/create")
     public Buku create(VMJExchange vmjExchange){
-		String jumlahBukuStr = (String) vmjExchange.getRequestBodyForm("jumlahBuku");
-		int jumlahBuku = Integer.parseInt(jumlahBukuStr);
-		
-		  = record.create(vmjExchange);
-		 deco = Factory.create("LibraryManagementSystem.bukufisik.core.BukuImpl", , jumlahBuku);
-			return deco;
-	}
-
-    public Buku create(VMJExchange vmjExchange, int id){
-		String jumlahBukuStr = (String) vmjExchange.getRequestBodyForm("jumlahBuku");
-		int jumlahBuku = Integer.parseInt(jumlahBukuStr);
-		  = Repository.getObject(id);
-		int recordId = (((Decorator) saved.getRecord()).getId();
-		
-		  = record.create(vmjExchange);
-		 deco = Factory.create("LibraryManagementSystem.bukufisik.core.BukuImpl", id, , jumlahBuku);
-			return deco;
-	}
-
-    // @Restriced(permission = "")
-    @Route(url="call/bukufisik/update")
-    public HashMap<String, Object> update(VMJExchange vmjExchange){
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		String idStr = (String) vmjExchange.getRequestBodyForm("");
-		int id = Integer.parseInt(idStr);
-		
-		  = Repository.getObject(id);
-		 = create(vmjExchange, id);
-		
-		Repository.updateObject();
-		 = Repository.getObject(id);
-		//to do: fix association attributes
-		
-		return .toHashMap();
-		
+		return bukuServiceImpl.createBuku(vmjExchange.getPayload());
 	}
 
 	// @Restriced(permission = "")

@@ -17,4 +17,5 @@ public class WishlistServiceImpl extends WishlistServiceDecorator {
 	public void updateNote(UUID bookId, String newNotes) {
 		// TODO: implement this method
 	}
+
 }

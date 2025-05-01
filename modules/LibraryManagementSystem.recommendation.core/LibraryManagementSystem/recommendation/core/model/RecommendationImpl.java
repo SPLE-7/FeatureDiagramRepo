@@ -19,13 +19,7 @@ import javax.persistence.OneToMany;
 @Table(name="recommendation_impl")
 public class RecommendationImpl extends RecommendationComponent {
 
-	public RecommendationImpl(Buku daftarbukuimpl, UserImpl akunimpl) {
-		this.daftarbukuimpl = daftarbukuimpl;
-		this.akunimpl = akunimpl;
-	}
-
-	public RecommendationImpl(Buku daftarbukuimpl, UserImpl akunimpl) {
-		this. =  .randomUUID();;
+	public RecommendationImpl(Buku daftarbukuimpl, User akunimpl) {
 		this.daftarbukuimpl = daftarbukuimpl;
 		this.akunimpl = akunimpl;
 	}

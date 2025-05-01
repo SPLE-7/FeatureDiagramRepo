@@ -9,10 +9,8 @@ public abstract class PeminjamanBukuResourceComponent implements PeminjamanBukuR
 	
 	public PeminjamanBukuResourceComponent() { }
  
-    public abstract PeminjamanBuku createPeminjamanBuku(VMJExchange vmjExchange);    
-	public abstract HashMap<String, Object> updatePeminjamanBuku(VMJExchange vmjExchange);
+    public abstract HashMap<String, Object> createPeminjamanBuku(VMJExchange vmjExchange);    
     public abstract HashMap<String, Object> getPeminjamanBuku(VMJExchange vmjExchange);
     public abstract List<HashMap<String,Object>> getAllPeminjamanBuku(VMJExchange vmjExchange);
-    public abstract List<HashMap<String,Object>> deletePeminjamanBuku(VMJExchange vmjExchange);
 
 }

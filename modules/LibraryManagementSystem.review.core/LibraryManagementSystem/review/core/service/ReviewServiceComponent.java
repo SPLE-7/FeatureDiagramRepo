@@ -6,20 +6,19 @@ import vmj.routing.route.VMJExchange;
 //add other required packages
 
 public abstract class ReviewServiceComponent implements ReviewService{
-	protected RepositoryUtil<Review> Repository;
+	protected RepositoryUtil<Review> reviewRepository;
+    protected RepositoryUtil<Buku> bukuRepository;
+    protected RepositoryUtil<User> userRepository;
 
     public ReviewServiceComponent(){
-        this.Repository = new RepositoryUtil<Review>(LibraryManagementSystem.review.core.ReviewComponent.class);
+        this.reviewRepository = new RepositoryUtil<Review>(LibraryManagementSystem.review.core.ReviewComponent.class);
+        this.bukuRepository = new RepositoryUtil<Wishlist>(LibraryManagementSystem.buku.core.BukuComponent.class);
+        this.userRepository = new RepositoryUtil<User>(LibraryManagementSystem.user.core.UserComponent.class);
     }	
 
-    public abstract List<HashMap<String,Object>> saveReview(VMJExchange vmjExchange);
     public abstract Review createReview(Map<String, Object> requestBodye);
-	public abstract Review createReview(Map<String, Object> requestBody, Map<String, Object> response);    
-	public abstract HashMap<String, Object> updateReview(Map<String, Object> requestBody);
     public abstract HashMap<String, Object> getReview(Map<String, Object> requestBody);
     public abstract List<HashMap<String,Object>> getAllReview(Map<String, Object> requestBody);
     public abstract List<HashMap<String,Object>> transformListToHashMap(List<Review> List);
-    public abstract List<HashMap<String,Object>> deleteReview(Map<String, Object> requestBody);
-	public abstract HashMap<String, Object> getReviewById(int id);
 
 }

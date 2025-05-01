@@ -5,13 +5,12 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.peminjamanbuku.PeminjamanBukuFactory;
-//import prices.auth.vmj.annotations.Restricted;
+import vmj.auth.annotations.Restricted;
 //add other required packages
 
 public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceComponent{
 	
 	private PeminjamanBukuServiceImpl peminjamanbukuServiceImpl = new PeminjamanBukuServiceImpl();
-
 	// @Restriced(permission = "")
     @Route(url="call/peminjamanbuku")
     public HashMap<String,Object> createpeminjamanbuku(VMJExchange vmjExchange){
@@ -21,17 +20,6 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceComponent{
 			return result.toHashMap();
 		}
 		throw new NotFoundException("Route tidak ditemukan");
-	}
-
-    // @Restriced(permission = "")
-    @Route(url="call/peminjamanbuku/update")
-    public HashMap<String, Object> updatePeminjamanBuku(VMJExchange vmjExchange){
-		Map<String, Object> requestBody = vmjExchange.getPayload(); 
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")){
-			return null;
-		}
-		return peminjamanbukuServiceImpl.updatePeminjamanBuku(requestBody);
-		
 	}
 
 	// @Restriced(permission = "")
@@ -46,18 +34,6 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceComponent{
     public List<HashMap<String,Object>> getAllPeminjamanBuku(VMJExchange vmjExchange){
 		Map<String, Object> requestBody = vmjExchange.getPayload(); 
 		return peminjamanbukuServiceImpl.getAllPeminjamanBuku(requestBody);
-	}
-
-    
-	// @Restriced(permission = "")
-    @Route(url="call/peminjamanbuku/delete")
-    public List<HashMap<String,Object>> deletePeminjamanBuku(VMJExchange vmjExchange){
-		Map<String, Object> requestBody = vmjExchange.getPayload(); 
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		
-		return peminjamanbukuServiceImpl.deletePeminjamanBuku(requestBody);
 	}
 
 }

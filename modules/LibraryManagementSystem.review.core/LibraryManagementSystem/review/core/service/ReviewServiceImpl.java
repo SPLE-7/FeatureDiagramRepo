@@ -15,76 +15,37 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.review.ReviewFactory;
-import prices.auth.vmj.annotations.Restricted;
+import vmj.auth.annotations.Restricted;
 //add other required packages
 
 public class ReviewServiceImpl extends ReviewServiceComponent{
 
-    public List<HashMap<String,Object>> saveReview(VMJExchange vmjExchange){
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		Review review = createReview(vmjExchange);
-		reviewRepository.saveObject(review);
-		return getAllReview(vmjExchange);
-	}
-
     public Review createReview(Map<String, Object> requestBody){
-		
+		Buku daftarbukuimpl = bukuRepository.getObject(requestBody.get("idBuku"));
 		//to do: fix association attributes
-		Review Review = ReviewFactory.createReview(
-			"LibraryManagementSystem.review.core.ReviewImpl",
-		idReview
+		Review review = ReviewFactory.createReview(
+			"LibraryManagementSystem.review.core.ReviewImpl"
 		, postedAt
 		, daftarbukuimpl
 		);
-		Repository.saveObject(review);
+		reviewRepository.saveObject(review);
 		return review;
-	}
-
-    public Review createReview(Map<String, Object> requestBody, int id){
-		
-		//to do: fix association attributes
-		
-		Review review = ReviewFactory.createReview("LibraryManagementSystem.review.core.ReviewImpl", postedAt, daftarbukuimpl);
-		return review;
-	}
-
-    public HashMap<String, Object> updateReview(Map<String, Object> requestBody){
-		String idStr = (String) requestBody.get("idReview");
-		int id = Integer.parseInt(idStr);
-		Review review = Repository.getObject(id);
-		
-		
-		Repository.updateObject(review);
-		
-		//to do: fix association attributes
-		
-		return review.toHashMap();
-		
 	}
 
     public HashMap<String, Object> getReview(Map<String, Object> requestBody){
 		List<HashMap<String, Object>> reviewList = getAllReview("review_impl");
 		for (HashMap<String, Object> review : reviewList){
-			int record_id = ((Double) review.get("record_id")).intValue();
-			if (record_id == id){
+			UUID recordId = UUID.fromString((String) review.get("idReview"));
+			if (record_id.equals(requestBody.get("idReview"))){
 				return review;
 			}
 		}
 		return null;
 	}
 
-	public HashMap<String, Object> getReviewById(int id){
-		String idStr = vmjExchange.getGETParam("idReview"); 
-		int id = Integer.parseInt(idStr);
-		Review review = reviewRepository.getObject(id);
-		return review.toHashMap();
-	}
-
     public List<HashMap<String,Object>> getAllReview(Map<String, Object> requestBody){
 		String table = (String) requestBody.get("table_name");
-		List<Review> List = Repository.getAllObject(table);
+		List<Review> List = reviewRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}
 
@@ -95,13 +56,6 @@ public class ReviewServiceImpl extends ReviewServiceComponent{
         }
 
         return resultList;
-	}
-
-    public List<HashMap<String,Object>> deleteReview(Map<String, Object> requestBody){
-		String idStr = ((String) requestBody.get("id"));
-		int id = Integer.parseInt(idStr);
-		Repository.deleteObject(id);
-		return getAllReview(requestBody);
 	}
 
 }

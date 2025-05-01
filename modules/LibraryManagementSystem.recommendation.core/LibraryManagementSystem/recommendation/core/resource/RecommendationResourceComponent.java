@@ -9,11 +9,6 @@ public abstract class RecommendationResourceComponent implements RecommendationR
 	
 	public RecommendationResourceComponent() { }
  
-    public abstract Recommendation createRecommendation(VMJExchange vmjExchange);    
-	public abstract HashMap<String, Object> updateRecommendation(VMJExchange vmjExchange);
     public abstract HashMap<String, Object> getRecommendation(VMJExchange vmjExchange);
     public abstract List<HashMap<String,Object>> getAllRecommendation(VMJExchange vmjExchange);
-    public abstract List<HashMap<String,Object>> deleteRecommendation(VMJExchange vmjExchange);
-
-	public abstract void getRecommendation();
 }

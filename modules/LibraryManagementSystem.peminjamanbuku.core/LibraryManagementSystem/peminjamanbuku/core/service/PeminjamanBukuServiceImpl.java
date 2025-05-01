@@ -15,27 +15,19 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.peminjamanbuku.PeminjamanBukuFactory;
-import prices.auth.vmj.annotations.Restricted;
+import vmj.auth.annotations.Restricted;
 //add other required packages
 
 public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 
-    public List<HashMap<String,Object>> savePeminjamanBuku(VMJExchange vmjExchange){
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		PeminjamanBuku peminjamanbuku = createPeminjamanBuku(vmjExchange);
-		peminjamanbukuRepository.saveObject(peminjamanbuku);
-		return getAllPeminjamanBuku(vmjExchange);
-	}
-
     public PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBody){
 		String status = (String) requestBody.get("status");
-		
+		Buku daftarbukuimpl = bukuRepository.getObject(requestBody.get("idBuku"));
+		// TODO: bingung nama id nya
+		User akunimpl = userRepository.getObject(requestBody.get("id"));
 		//to do: fix association attributes
 		PeminjamanBuku PeminjamanBuku = PeminjamanBukuFactory.createPeminjamanBuku(
-			"LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl",
-		idPeminjamanBuku
+			"LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl"
 		, status
 		, akunimpl
 		, daftarbukuimpl
@@ -46,46 +38,16 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 		return peminjamanbuku;
 	}
 
-    public PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBody, int id){
-		String status = (String) vmjExchange.getRequestBodyForm("status");
-		
-		//to do: fix association attributes
-		
-		PeminjamanBuku peminjamanbuku = PeminjamanBukuFactory.createPeminjamanBuku("LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl", status, akunimpl, daftarbukuimpl, tanggalPeminjaman, tanggalPengembalian);
-		return peminjamanbuku;
-	}
-
-    public HashMap<String, Object> updatePeminjamanBuku(Map<String, Object> requestBody){
-		String idStr = (String) requestBody.get("idPeminjamanBuku");
-		int id = Integer.parseInt(idStr);
-		PeminjamanBuku peminjamanbuku = Repository.getObject(id);
-		
-		peminjamanbuku.setStatus((String) requestBody.get("status"));
-		
-		Repository.updateObject(peminjamanbuku);
-		
-		//to do: fix association attributes
-		
-		return peminjamanbuku.toHashMap();
-		
-	}
-
     public HashMap<String, Object> getPeminjamanBuku(Map<String, Object> requestBody){
 		List<HashMap<String, Object>> peminjamanbukuList = getAllPeminjamanBuku("peminjamanbuku_impl");
 		for (HashMap<String, Object> peminjamanbuku : peminjamanbukuList){
-			int record_id = ((Double) peminjamanbuku.get("record_id")).intValue();
-			if (record_id == id){
+
+			UUID recordId = UUID.fromString((String) peminjamanbuku.get("idPeminjamanBuku"));
+			if (record_id.equals(requestBody.get("idPeminjamanBuku"))){
 				return peminjamanbuku;
 			}
 		}
 		return null;
-	}
-
-	public HashMap<String, Object> getPeminjamanBukuById(int id){
-		String idStr = vmjExchange.getGETParam("idPeminjamanBuku"); 
-		int id = Integer.parseInt(idStr);
-		PeminjamanBuku peminjamanbuku = peminjamanbukuRepository.getObject(id);
-		return peminjamanbuku.toHashMap();
 	}
 
     public List<HashMap<String,Object>> getAllPeminjamanBuku(Map<String, Object> requestBody){
@@ -101,13 +63,6 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
         }
 
         return resultList;
-	}
-
-    public List<HashMap<String,Object>> deletePeminjamanBuku(Map<String, Object> requestBody){
-		String idStr = ((String) requestBody.get("id"));
-		int id = Integer.parseInt(idStr);
-		Repository.deleteObject(id);
-		return getAllPeminjamanBuku(requestBody);
 	}
 
 }

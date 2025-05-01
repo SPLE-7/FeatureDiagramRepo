@@ -17,25 +17,16 @@ public abstract class RecommendationDecorator extends RecommendationComponent{
 	public RecommendationDecorator () {
 		super();
 		this.record = record;
-		this. =  .randomUUID();
+	}
 		
 	public RecommendationDecorator (RecommendationComponent record) {
-		this. =  .randomUUID();
-		this.record = record;
-	}
-
-	public RecommendationDecorator (, RecommendationComponent record) {
-		this. =  ;
 		this.record = record;
 	}
 	
 	public RecommendationDecorator (RecommendationComponent record, String objectName) {
-		this. =  .randomUUID();
 		this.record = record;	
 		this.objectName=objectName;
 	}
-
-	public RecommendationDecorator() { }
 
 
 	public void getRecommendation() {

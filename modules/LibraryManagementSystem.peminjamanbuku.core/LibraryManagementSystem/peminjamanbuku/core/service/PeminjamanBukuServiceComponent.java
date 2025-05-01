@@ -6,20 +6,19 @@ import vmj.routing.route.VMJExchange;
 //add other required packages
 
 public abstract class PeminjamanBukuServiceComponent implements PeminjamanBukuService{
-	protected RepositoryUtil<PeminjamanBuku> Repository;
+	protected RepositoryUtil<PeminjamanBuku> peminjamanRepository;
+    protected RepositoryUtil<Buku> bukuRepository;
+    protected RepositoryUtil<User> userRepository;
 
     public PeminjamanBukuServiceComponent(){
-        this.Repository = new RepositoryUtil<PeminjamanBuku>(LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuComponent.class);
+        this.peminjamanRepository = new RepositoryUtil<PeminjamanBuku>(LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuComponent.class);
+        this.bukuRepository = new RepositoryUtil<Buku>(LibraryManagementSystem.buku.core.BukuComponent.class);
+        this.userRepository = new RepositoryUtil<User>(LibraryManagementSystem.user.core.UserComponent.class);
     }	
 
-    public abstract List<HashMap<String,Object>> savePeminjamanBuku(VMJExchange vmjExchange);
     public abstract PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBodye);
-	public abstract PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBody, Map<String, Object> response);    
-	public abstract HashMap<String, Object> updatePeminjamanBuku(Map<String, Object> requestBody);
     public abstract HashMap<String, Object> getPeminjamanBuku(Map<String, Object> requestBody);
     public abstract List<HashMap<String,Object>> getAllPeminjamanBuku(Map<String, Object> requestBody);
     public abstract List<HashMap<String,Object>> transformListToHashMap(List<PeminjamanBuku> List);
-    public abstract List<HashMap<String,Object>> deletePeminjamanBuku(Map<String, Object> requestBody);
-	public abstract HashMap<String, Object> getPeminjamanBukuById(int id);
 
 }

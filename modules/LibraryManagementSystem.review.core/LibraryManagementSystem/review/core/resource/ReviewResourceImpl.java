@@ -23,17 +23,6 @@ public class ReviewResourceImpl extends ReviewResourceComponent{
 		throw new NotFoundException("Route tidak ditemukan");
 	}
 
-    // @Restriced(permission = "")
-    @Route(url="call/review/update")
-    public HashMap<String, Object> updateReview(VMJExchange vmjExchange){
-		Map<String, Object> requestBody = vmjExchange.getPayload(); 
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")){
-			return null;
-		}
-		return reviewServiceImpl.updateReview(requestBody);
-		
-	}
-
 	// @Restriced(permission = "")
     @Route(url="call/review/detail")
     public HashMap<String, Object> getReview(VMJExchange vmjExchange){
@@ -46,18 +35,6 @@ public class ReviewResourceImpl extends ReviewResourceComponent{
     public List<HashMap<String,Object>> getAllReview(VMJExchange vmjExchange){
 		Map<String, Object> requestBody = vmjExchange.getPayload(); 
 		return reviewServiceImpl.getAllReview(requestBody);
-	}
-
-    
-	// @Restriced(permission = "")
-    @Route(url="call/review/delete")
-    public List<HashMap<String,Object>> deleteReview(VMJExchange vmjExchange){
-		Map<String, Object> requestBody = vmjExchange.getPayload(); 
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		
-		return reviewServiceImpl.deleteReview(requestBody);
 	}
 
 }

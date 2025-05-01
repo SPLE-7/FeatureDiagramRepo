@@ -8,12 +8,9 @@ import vmj.routing.route.VMJExchange;
 public abstract class StatistikResourceComponent implements StatistikResource{
 	
 	public StatistikResourceComponent() { }
- 
-    public abstract Statistik createStatistik(VMJExchange vmjExchange);    
-	public abstract HashMap<String, Object> updateStatistik(VMJExchange vmjExchange);
+
     public abstract HashMap<String, Object> getStatistik(VMJExchange vmjExchange);
     public abstract List<HashMap<String,Object>> getAllStatistik(VMJExchange vmjExchange);
-    public abstract List<HashMap<String,Object>> deleteStatistik(VMJExchange vmjExchange);
 
 	public abstract int hitungTotalBuku();
 }

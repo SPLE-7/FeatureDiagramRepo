@@ -13,6 +13,7 @@ public class RecommendationResourceImpl extends RecommendationResourceDecorator 
         super(record);
     }
 
+	// TODO: BELOM SEMUA
     // @Restriced(permission = "")
     @Route(url="call/recommendationbyauthor/save")
     public List<HashMap<String,Object>> save(VMJExchange vmjExchange){

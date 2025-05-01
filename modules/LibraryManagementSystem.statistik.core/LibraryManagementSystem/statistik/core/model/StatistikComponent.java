@@ -14,9 +14,10 @@ import javax.persistence.Table;
 @Table(name="statistik_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class StatistikComponent implements Statistik{
-	@Id
 	
+	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
+	
 	protected String objectName = StatistikComponent.class.getName();
 
 	public StatistikComponent() {

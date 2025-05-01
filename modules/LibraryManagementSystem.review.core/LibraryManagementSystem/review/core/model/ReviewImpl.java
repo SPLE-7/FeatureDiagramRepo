@@ -26,7 +26,7 @@ public class ReviewImpl extends ReviewComponent {
 	}
 
 	public ReviewImpl(Date postedAt, Buku daftarbukuimpl) {
-		this.idReview =  idReview.randomUUID();;
+		this.idReview =  idReview.randomUUID();
 		this.postedAt = postedAt;
 		this.daftarbukuimpl = daftarbukuimpl;
 	}

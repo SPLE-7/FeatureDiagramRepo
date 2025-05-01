@@ -15,48 +15,40 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
-@Entity(name="wishlist_impl")
-@Table(name="wishlist_impl")
+@Entity(name = "wishlist_impl")
+@Table(name = "wishlist_impl")
 public class WishlistImpl extends WishlistComponent {
 
-	public WishlistImpl(UserImpl akunimpl, Buku daftarbukuimpl, UserImpl akunimpl, User akunimpl) {
-		this.akunimpl = akunimpl;
-		this.daftarbukuimpl = daftarbukuimpl;
-		this.akunimpl = akunimpl;
-		this.akunimpl = akunimpl;
-	}
-
-	public WishlistImpl(UserImpl akunimpl, Buku daftarbukuimpl, UserImpl akunimpl, User akunimpl) {
-		this. =  .randomUUID();;
-		this.akunimpl = akunimpl;
-		this.daftarbukuimpl = daftarbukuimpl;
-		this.akunimpl = akunimpl;
-		this.akunimpl = akunimpl;
-	}
-
-	public WishlistImpl() { }
-
-
-	public void addBookToWishlist() {
-		// TODO: implement this method
-	}
-
-	public void removeBookFromWishlist() {
-		// TODO: implement this method
-	}
-
-	public void getWishlist() {
-		// TODO: implement this method
-	}
-	
-	public HashMap<String, Object> toHashMap() {
-        HashMap<String, Object> wishlistMap = new HashMap<String,Object>();
-		wishlistMap.put("akunimpl",getAkunimpl());
-		wishlistMap.put("daftarbukuimpl",getDaftarbukuimpl());
-		wishlistMap.put("akunimpl",getAkunimpl());
-		wishlistMap.put("akunimpl",getAkunimpl());
-
-        return wishlistMap;
+    public WishlistImpl(AkunImpl akunimpl, BukuImpl daftarbukuimpl) {
+        this.akunimpl = akunimpl;
+        this.daftarbukuimpl = daftarbukuimpl;
+        this.id = UUID.randomUUID();
     }
 
+    public WishlistImpl() {
+        this.id = UUID.randomUUID();
+    }
+
+    @Override
+    public void addBookToWishlist() {
+        // TODO: implement this method
+    }
+
+    @Override
+    public void removeBookFromWishlist() {
+        // TODO: implement this method
+    }
+
+    @Override
+    public void getWishlist() {
+        // TODO: implement this method
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap() {
+        HashMap<String, Object> wishlistMap = new HashMap<>();
+        wishlistMap.put("akunimpl", getAkunimpl());
+        wishlistMap.put("daftarbukuimpl", getDaftarbukuimpl());
+        return wishlistMap;
+    }
 }

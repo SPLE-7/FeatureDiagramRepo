@@ -15,20 +15,12 @@ public abstract class ReviewResourceDecorator extends ReviewResourceComponent{
 		return record.createReview(vmjExchange);
 	}
 
-    public HashMap<String, Object> updateReview(VMJExchange vmjExchange){
-		return record.updateReview(vmjExchange);
-	}
-
     public HashMap<String, Object> getReview(VMJExchange vmjExchange){
 		return record.getReview(vmjExchange);
 	}
 
     public List<HashMap<String,Object>> getAllReview(VMJExchange vmjExchange){
 		return record.getAllReview(vmjExchange);
-	}
-
-    public List<HashMap<String,Object>> deleteReview(VMJExchange vmjExchange){
-		return record.deleteReview(vmjExchange);
 	}
 
 }

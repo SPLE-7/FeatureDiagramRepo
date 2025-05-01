@@ -17,8 +17,8 @@ import LibraryManagementSystem.buku.core.BukuComponent;
 public class BukuImpl extends BukuDecorator {
 
 	protected int jumlahBuku;
-	public BukuImpl(
-        super();
+	public BukuImpl() {        
+		super();
         this.objectName = BukuImpl.class.getName();
     }
     

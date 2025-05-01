@@ -5,7 +5,7 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.buku.BukuFactory;
-//import prices.auth.vmj.annotations.Restricted;
+import vmj.auth.annotations.Restricted;
 //add other required packages
 
 public class BukuResourceImpl extends BukuResourceComponent{
@@ -14,24 +14,13 @@ public class BukuResourceImpl extends BukuResourceComponent{
 
 	// @Restriced(permission = "")
     @Route(url="call/buku")
-    public HashMap<String,Object> createbuku(VMJExchange vmjExchange){
+    public HashMap<String,Object> createBuku(VMJExchange vmjExchange){
 		if (vmjExchange.getHttpMethod().equals("POST")) {
 		    Map<String, Object> requestBody = vmjExchange.getPayload(); 
 			Buku result = bukuServiceImpl.createBuku(requestBody);
 			return result.toHashMap();
 		}
 		throw new NotFoundException("Route tidak ditemukan");
-	}
-
-    // @Restriced(permission = "")
-    @Route(url="call/buku/update")
-    public HashMap<String, Object> updateBuku(VMJExchange vmjExchange){
-		Map<String, Object> requestBody = vmjExchange.getPayload(); 
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")){
-			return null;
-		}
-		return bukuServiceImpl.updateBuku(requestBody);
-		
 	}
 
 	// @Restriced(permission = "")

@@ -18,6 +18,7 @@ public abstract class ReviewDecorator extends ReviewComponent{
 		super();
 		this.record = record;
 		this.idReview =  idReview.randomUUID();
+	}
 		
 	public ReviewDecorator (ReviewComponent record) {
 		this.idReview =  idReview.randomUUID();
@@ -34,8 +35,6 @@ public abstract class ReviewDecorator extends ReviewComponent{
 		this.record = record;	
 		this.objectName=objectName;
 	}
-
-	public ReviewDecorator() { }
 
 	public UUID getIdReview() {
 		return record.getIdReview();

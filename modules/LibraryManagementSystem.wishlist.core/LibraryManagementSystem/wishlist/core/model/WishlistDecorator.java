@@ -10,48 +10,40 @@ import javax.persistence.CascadeType;
 //add other required packages
 
 @MappedSuperclass
-public abstract class WishlistDecorator extends WishlistComponent{
-    @OneToOne(cascade=CascadeType.ALL)
-	protected WishlistComponent record;
+public abstract class WishlistDecorator extends WishlistComponent {
+    @OneToOne(cascade = CascadeType.ALL)
+    protected WishlistComponent record;
 
-	public WishlistDecorator () {
-		super();
-		this.record = record;
-		this. =  .randomUUID();
-		
-	public WishlistDecorator (WishlistComponent record) {
-		this. =  .randomUUID();
-		this.record = record;
-	}
+    protected UUID id = UUID.randomUUID();
 
-	public WishlistDecorator (, WishlistComponent record) {
-		this. =  ;
-		this.record = record;
-	}
-	
-	public WishlistDecorator (WishlistComponent record, String objectName) {
-		this. =  .randomUUID();
-		this.record = record;	
-		this.objectName=objectName;
-	}
-
-	public WishlistDecorator() { }
-
-
-	public void addBookToWishlist() {
-		return record.addBookToWishlist();
-	}
-
-	public void removeBookFromWishlist() {
-		return record.removeBookFromWishlist();
-	}
-
-	public void getWishlist() {
-		return record.getWishlist();
-	}
-
-	public HashMap<String, Object> toHashMap() {
-        return this.record.toHashMap();
+    public WishlistDecorator() {
+        super();
     }
 
+    public WishlistDecorator(WishlistComponent record) {
+        super();
+        this.record = record;
+    }
+
+    public WishlistDecorator(WishlistComponent record, String objectName) {
+        super();
+        this.record = record;
+        this.objectName = objectName;
+    }
+
+    public void addBookToWishlist() {
+        record.addBookToWishlist();
+    }
+
+    public void removeBookFromWishlist() {
+        record.removeBookFromWishlist();
+    }
+
+    public void getWishlist() {
+        record.getWishlist();
+    }
+
+    public HashMap<String, Object> toHashMap() {
+        return this.record.toHashMap();
+    }
 }
