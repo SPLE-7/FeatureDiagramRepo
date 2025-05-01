@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 @Table(name="peminjamanbuku_impl")
 public class PeminjamanBukuImpl extends PeminjamanBukuComponent {
 
-	public PeminjamanBukuImpl(UUID idPeminjamanBuku, String status, AkunImpl akunimpl, BukuImpl daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian) {
+	public PeminjamanBukuImpl(UUID idPeminjamanBuku, String status, User akunimpl, Buku daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian) {
 		this.idPeminjamanBuku = idPeminjamanBuku;
 		this.status = status;
 		this.akunimpl = akunimpl;
@@ -28,7 +28,7 @@ public class PeminjamanBukuImpl extends PeminjamanBukuComponent {
 		this.tanggalPengembalian = tanggalPengembalian;
 	}
 
-	public PeminjamanBukuImpl(String status, AkunImpl akunimpl, BukuImpl daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian) {
+	public PeminjamanBukuImpl(String status, User akunimpl, Buku daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian) {
 		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();;
 		this.status = status;
 		this.akunimpl = akunimpl;

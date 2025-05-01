@@ -16,14 +16,12 @@ import javax.persistence.Table;
 public abstract class WishlistComponent implements Wishlist{
 	@Id
 	
-	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
-	public Akun akunimpl;
-	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
+	@ManyToOne(targetEntity=LibraryManagementSystem.user.core.UserComponent.class)
+	public User akunimpl;
 	public Buku daftarbukuimpl;
-	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
-	public Akun akunimpl;
-	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
-	public Akun akunimpl;
+	@ManyToOne(targetEntity=LibraryManagementSystem.user.core.UserComponent.class)
+	public User akunimpl;
+	public User akunimpl;
 	protected String objectName = WishlistComponent.class.getName();
 
 	public WishlistComponent() {
@@ -31,7 +29,7 @@ public abstract class WishlistComponent implements Wishlist{
 	} 
 
 	public WishlistComponent(
-        AkunImpl akunimpl, BukuImpl daftarbukuimpl, AkunImpl akunimpl, AkunImpl akunimpl
+        UserImpl akunimpl, Buku daftarbukuimpl, UserImpl akunimpl, User akunimpl
     ) {
         this.akunimpl = akunimpl;
         this.daftarbukuimpl = daftarbukuimpl;
@@ -39,17 +37,17 @@ public abstract class WishlistComponent implements Wishlist{
         this.akunimpl = akunimpl;
     }
 
-	public abstract AkunImpl getAkunimpl();
-	public abstract void setAkunimpl(AkunImpl akunimpl);
+	public abstract UserImpl getAkunimpl();
+	public abstract void setAkunimpl(UserImpl akunimpl);
 	
-	public abstract BukuImpl getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
+	public abstract Buku getDaftarbukuimpl();
+	public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
 	
-	public abstract AkunImpl getAkunimpl();
-	public abstract void setAkunimpl(AkunImpl akunimpl);
+	public abstract UserImpl getAkunimpl();
+	public abstract void setAkunimpl(UserImpl akunimpl);
 	
-	public abstract AkunImpl getAkunimpl();
-	public abstract void setAkunimpl(AkunImpl akunimpl);
+	public abstract User getAkunimpl();
+	public abstract void setAkunimpl(User akunimpl);
 	
  
 	public abstract void addBookToWishlist();

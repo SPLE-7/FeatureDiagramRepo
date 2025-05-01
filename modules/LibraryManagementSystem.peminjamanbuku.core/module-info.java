@@ -1,5 +1,5 @@
 module LibraryManagementSystem.peminjamanbuku.core {
-	requires LibraryManagementSystem.akun.core;
+	requires LibraryManagementSystem.user.core;
 	requires LibraryManagementSystem.buku.core;
 	exports LibraryManagementSystem.peminjamanbuku;
     exports LibraryManagementSystem.peminjamanbuku.core;

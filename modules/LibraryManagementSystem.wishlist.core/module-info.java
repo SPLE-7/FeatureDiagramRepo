@@ -1,6 +1,6 @@
 module LibraryManagementSystem.wishlist.core {
 	requires LibraryManagementSystem.buku.core;
-	requires LibraryManagementSystem.akun.core;
+	requires LibraryManagementSystem.user.core;
 	exports LibraryManagementSystem.wishlist;
     exports LibraryManagementSystem.wishlist.core;
 	requires vmj.routing.route;

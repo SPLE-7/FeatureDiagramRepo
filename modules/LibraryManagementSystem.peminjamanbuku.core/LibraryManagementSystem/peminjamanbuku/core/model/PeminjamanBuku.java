@@ -8,10 +8,10 @@ public interface PeminjamanBuku {
 	public void setIdPeminjamanBuku(UUID idPeminjamanBuku);
 	public String getStatus();
 	public void setStatus(String status);
-	public AkunImpl getAkunimpl();
-	public void setAkunimpl(AkunImpl akunimpl);
-	public BukuImpl getDaftarbukuimpl();
-	public void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
+	public User getAkunimpl();
+	public void setAkunimpl(User akunimpl);
+	public Buku getDaftarbukuimpl();
+	public void setDaftarbukuimpl(Buku daftarbukuimpl);
 	public Date getTanggalPeminjaman();
 	public void setTanggalPeminjaman(Date tanggalPeminjaman);
 	public Date getTanggalPengembalian();

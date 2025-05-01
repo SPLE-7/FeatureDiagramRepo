@@ -16,7 +16,6 @@ import javax.persistence.Table;
 public abstract class StatistikComponent implements Statistik{
 	@Id
 	
-	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
 	protected String objectName = StatistikComponent.class.getName();
 
@@ -25,13 +24,13 @@ public abstract class StatistikComponent implements Statistik{
 	} 
 
 	public StatistikComponent(
-        BukuImpl daftarbukuimpl
+        Buku daftarbukuimpl
     ) {
         this.daftarbukuimpl = daftarbukuimpl;
     }
 
-	public abstract BukuImpl getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
+	public abstract Buku getDaftarbukuimpl();
+	public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
 	
  
 	public abstract int hitungTotalBuku();

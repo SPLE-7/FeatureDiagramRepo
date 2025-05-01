@@ -4,9 +4,9 @@ import vmj.routing.route.VMJExchange;
 import java.util.*;
 
 public interface Recommendation {
-	public BukuImpl getDaftarbukuimpl();
-	public void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
-	public AkunImpl getAkunimpl();
-	public void setAkunimpl(AkunImpl akunimpl);
+	public Buku getDaftarbukuimpl();
+	public void setDaftarbukuimpl(Buku daftarbukuimpl);
+	public UserImpl getAkunimpl();
+	public void setAkunimpl(UserImpl akunimpl);
 	HashMap<String, Object> toHashMap();
 }

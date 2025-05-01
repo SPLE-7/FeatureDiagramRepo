@@ -4,7 +4,7 @@ import vmj.routing.route.VMJExchange;
 import java.util.*;
 
 public interface Statistik {
-	public BukuImpl getDaftarbukuimpl();
-	public void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
+	public Buku getDaftarbukuimpl();
+	public void setDaftarbukuimpl(Buku daftarbukuimpl);
 	HashMap<String, Object> toHashMap();
 }

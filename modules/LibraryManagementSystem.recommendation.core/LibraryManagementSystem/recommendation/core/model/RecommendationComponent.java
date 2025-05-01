@@ -16,10 +16,9 @@ import javax.persistence.Table;
 public abstract class RecommendationComponent implements Recommendation{
 	@Id
 	
-	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
-	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
-	public Akun akunimpl;
+	@ManyToOne(targetEntity=LibraryManagementSystem.user.core.UserComponent.class)
+	public User akunimpl;
 	protected String objectName = RecommendationComponent.class.getName();
 
 	public RecommendationComponent() {
@@ -27,17 +26,17 @@ public abstract class RecommendationComponent implements Recommendation{
 	} 
 
 	public RecommendationComponent(
-        BukuImpl daftarbukuimpl, AkunImpl akunimpl
+        Buku daftarbukuimpl, UserImpl akunimpl
     ) {
         this.daftarbukuimpl = daftarbukuimpl;
         this.akunimpl = akunimpl;
     }
 
-	public abstract BukuImpl getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
+	public abstract Buku getDaftarbukuimpl();
+	public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
 	
-	public abstract AkunImpl getAkunimpl();
-	public abstract void setAkunimpl(AkunImpl akunimpl);
+	public abstract UserImpl getAkunimpl();
+	public abstract void setAkunimpl(UserImpl akunimpl);
 	
  
 	public abstract void getRecommendation();

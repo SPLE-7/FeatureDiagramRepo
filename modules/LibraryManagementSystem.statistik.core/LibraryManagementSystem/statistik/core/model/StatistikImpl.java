@@ -19,11 +19,11 @@ import javax.persistence.OneToMany;
 @Table(name="statistik_impl")
 public class StatistikImpl extends StatistikComponent {
 
-	public StatistikImpl(BukuImpl daftarbukuimpl) {
+	public StatistikImpl(Buku daftarbukuimpl) {
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
-	public StatistikImpl(BukuImpl daftarbukuimpl) {
+	public StatistikImpl(Buku daftarbukuimpl) {
 		this. =  .randomUUID();;
 		this.daftarbukuimpl = daftarbukuimpl;
 	}

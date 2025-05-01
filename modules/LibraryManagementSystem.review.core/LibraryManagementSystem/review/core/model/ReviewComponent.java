@@ -17,7 +17,6 @@ public abstract class ReviewComponent implements Review{
 	@Id
 	protected UUID idReview; 
 	protected Date postedAt;
-	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
 	protected String objectName = ReviewComponent.class.getName();
 
@@ -26,7 +25,7 @@ public abstract class ReviewComponent implements Review{
 	} 
 
 	public ReviewComponent(
-        UUID idReview, Date postedAt, BukuImpl daftarbukuimpl
+        UUID idReview, Date postedAt, Buku daftarbukuimpl
     ) {
         this.idReview = idReview;
         this.postedAt = postedAt;
@@ -47,8 +46,8 @@ public abstract class ReviewComponent implements Review{
 	public void setPostedAt(Date postedAt) {
 		this.postedAt = postedAt;
 	}
-	public abstract BukuImpl getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
+	public abstract Buku getDaftarbukuimpl();
+	public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
 	
  
 
