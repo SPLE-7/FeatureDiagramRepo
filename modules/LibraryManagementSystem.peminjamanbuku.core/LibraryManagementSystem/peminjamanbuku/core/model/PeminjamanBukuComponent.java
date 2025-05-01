@@ -19,8 +19,8 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	protected String status;
 	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
 	public Akun akunimpl;
-	@ManyToOne(targetEntity=LibraryManagementSystem.daftarbuku.core.DaftarBukuComponent.class)
-	public DaftarBuku daftarbukuimpl;
+	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
+	public Buku daftarbukuimpl;
 	protected Date tanggalPeminjaman;
 	protected Date tanggalPengembalian;
 	protected String objectName = PeminjamanBukuComponent.class.getName();
@@ -30,7 +30,7 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	} 
 
 	public PeminjamanBukuComponent(
-        UUID idPeminjamanBuku, String status, AkunImpl akunimpl, DaftarBukuImpl daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian
+        UUID idPeminjamanBuku, String status, AkunImpl akunimpl, BukuImpl daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian
     ) {
         this.idPeminjamanBuku = idPeminjamanBuku;
         this.status = status;
@@ -57,8 +57,8 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	public abstract AkunImpl getAkunimpl();
 	public abstract void setAkunimpl(AkunImpl akunimpl);
 	
-	public abstract DaftarBukuImpl getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(DaftarBukuImpl daftarbukuimpl);
+	public abstract BukuImpl getDaftarbukuimpl();
+	public abstract void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
 	
 	public Date getTanggalPeminjaman() {
 		return this.tanggalPeminjaman;

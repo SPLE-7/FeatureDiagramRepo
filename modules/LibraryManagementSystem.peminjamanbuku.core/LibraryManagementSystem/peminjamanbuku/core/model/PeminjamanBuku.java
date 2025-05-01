@@ -10,8 +10,8 @@ public interface PeminjamanBuku {
 	public void setStatus(String status);
 	public AkunImpl getAkunimpl();
 	public void setAkunimpl(AkunImpl akunimpl);
-	public DaftarBukuImpl getDaftarbukuimpl();
-	public void setDaftarbukuimpl(DaftarBukuImpl daftarbukuimpl);
+	public BukuImpl getDaftarbukuimpl();
+	public void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
 	public Date getTanggalPeminjaman();
 	public void setTanggalPeminjaman(Date tanggalPeminjaman);
 	public Date getTanggalPengembalian();

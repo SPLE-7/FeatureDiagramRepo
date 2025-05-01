@@ -8,7 +8,7 @@ public interface Review {
 	public void setIdReview(UUID idReview);
 	public Date getPostedAt();
 	public void setPostedAt(Date postedAt);
-	public DaftarBukuImpl getDaftarbukuimpl();
-	public void setDaftarbukuimpl(DaftarBukuImpl daftarbukuimpl);
+	public BukuImpl getDaftarbukuimpl();
+	public void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
 	HashMap<String, Object> toHashMap();
 }

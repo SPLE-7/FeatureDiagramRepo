@@ -95,7 +95,7 @@ public class RecommendationResourceImpl extends RecommendationResourceDecorator 
 		return getAll(vmjExchange);
 	}
 
-	public List<DaftarBuku> generateRecommendationAuthor() {
+	public List<Buku> generateRecommendationAuthor() {
 		// TODO: implement this method
 	}
 }

@@ -14,7 +14,7 @@ public class RecommendationServiceImpl extends RecommendationServiceDecorator {
     }
 
     
-	public List<DaftarBuku> generateRecommendationGenre() {
+	public List<Buku> generateRecommendationGenre() {
 		// TODO: implement this method
 	}
 }

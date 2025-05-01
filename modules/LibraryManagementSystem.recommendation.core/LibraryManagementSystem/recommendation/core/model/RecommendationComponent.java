@@ -16,12 +16,10 @@ import javax.persistence.Table;
 public abstract class RecommendationComponent implements Recommendation{
 	@Id
 	
-	@ManyToOne(targetEntity=LibraryManagementSystem.daftarbuku.core.DaftarBukuComponent.class)
-	public DaftarBuku daftarbukuimpl;
+	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
+	public Buku daftarbukuimpl;
 	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
 	public Akun akunimpl;
-	@ManyToOne(targetEntity=LibraryManagementSystem.wishlist.core.WishlistComponent.class)
-	public Wishlist wishlistserviceimpl;
 	protected String objectName = RecommendationComponent.class.getName();
 
 	public RecommendationComponent() {
@@ -29,21 +27,17 @@ public abstract class RecommendationComponent implements Recommendation{
 	} 
 
 	public RecommendationComponent(
-        DaftarBukuImpl daftarbukuimpl, AkunImpl akunimpl, WishlistImpl wishlistserviceimpl
+        BukuImpl daftarbukuimpl, AkunImpl akunimpl
     ) {
         this.daftarbukuimpl = daftarbukuimpl;
         this.akunimpl = akunimpl;
-        this.wishlistserviceimpl = wishlistserviceimpl;
     }
 
-	public abstract DaftarBukuImpl getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(DaftarBukuImpl daftarbukuimpl);
+	public abstract BukuImpl getDaftarbukuimpl();
+	public abstract void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
 	
 	public abstract AkunImpl getAkunimpl();
 	public abstract void setAkunimpl(AkunImpl akunimpl);
-	
-	public abstract WishlistImpl getWishlistserviceimpl();
-	public abstract void setWishlistserviceimpl(WishlistImpl wishlistserviceimpl);
 	
  
 	public abstract void getRecommendation();
@@ -53,7 +47,6 @@ public abstract class RecommendationComponent implements Recommendation{
         return "{" +
             " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
             " akunimpl='" + getAkunimpl() + "'" +
-            " wishlistserviceimpl='" + getWishlistserviceimpl() + "'" +
             "}";
     }
 	

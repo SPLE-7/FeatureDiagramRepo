@@ -36,7 +36,6 @@ public class RecommendationServiceImpl extends RecommendationServiceComponent{
 			"LibraryManagementSystem.recommendation.core.RecommendationImpl",
 		daftarbukuimpl
 		, akunimpl
-		, wishlistserviceimpl
 		);
 		Repository.saveObject(recommendation);
 		return recommendation;
@@ -46,7 +45,7 @@ public class RecommendationServiceImpl extends RecommendationServiceComponent{
 		
 		//to do: fix association attributes
 		
-		Recommendation recommendation = RecommendationFactory.createRecommendation("LibraryManagementSystem.recommendation.core.RecommendationImpl", daftarbukuimpl, akunimpl, wishlistserviceimpl);
+		Recommendation recommendation = RecommendationFactory.createRecommendation("LibraryManagementSystem.recommendation.core.RecommendationImpl", daftarbukuimpl, akunimpl);
 		return recommendation;
 	}
 

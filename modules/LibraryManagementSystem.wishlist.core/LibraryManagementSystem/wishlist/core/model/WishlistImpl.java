@@ -19,14 +19,14 @@ import javax.persistence.OneToMany;
 @Table(name="wishlist_impl")
 public class WishlistImpl extends WishlistComponent {
 
-	public WishlistImpl(AkunImpl akunimpl, DaftarBukuImpl daftarbukuimpl, AkunImpl akunimpl, AkunImpl akunimpl) {
+	public WishlistImpl(AkunImpl akunimpl, BukuImpl daftarbukuimpl, AkunImpl akunimpl, AkunImpl akunimpl) {
 		this.akunimpl = akunimpl;
 		this.daftarbukuimpl = daftarbukuimpl;
 		this.akunimpl = akunimpl;
 		this.akunimpl = akunimpl;
 	}
 
-	public WishlistImpl(AkunImpl akunimpl, DaftarBukuImpl daftarbukuimpl, AkunImpl akunimpl, AkunImpl akunimpl) {
+	public WishlistImpl(AkunImpl akunimpl, BukuImpl daftarbukuimpl, AkunImpl akunimpl, AkunImpl akunimpl) {
 		this. =  .randomUUID();;
 		this.akunimpl = akunimpl;
 		this.daftarbukuimpl = daftarbukuimpl;

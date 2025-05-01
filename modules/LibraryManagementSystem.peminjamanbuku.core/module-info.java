@@ -1,6 +1,6 @@
 module LibraryManagementSystem.peminjamanbuku.core {
 	requires LibraryManagementSystem.akun.core;
-	requires LibraryManagementSystem.daftarbuku.core;
+	requires LibraryManagementSystem.buku.core;
 	exports LibraryManagementSystem.peminjamanbuku;
     exports LibraryManagementSystem.peminjamanbuku.core;
 	requires vmj.routing.route;

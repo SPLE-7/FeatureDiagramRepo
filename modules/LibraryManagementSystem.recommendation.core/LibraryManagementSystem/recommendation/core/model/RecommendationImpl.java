@@ -19,17 +19,15 @@ import javax.persistence.OneToMany;
 @Table(name="recommendation_impl")
 public class RecommendationImpl extends RecommendationComponent {
 
-	public RecommendationImpl(DaftarBukuImpl daftarbukuimpl, AkunImpl akunimpl, WishlistImpl wishlistserviceimpl) {
+	public RecommendationImpl(BukuImpl daftarbukuimpl, AkunImpl akunimpl) {
 		this.daftarbukuimpl = daftarbukuimpl;
 		this.akunimpl = akunimpl;
-		this.wishlistserviceimpl = wishlistserviceimpl;
 	}
 
-	public RecommendationImpl(DaftarBukuImpl daftarbukuimpl, AkunImpl akunimpl, WishlistImpl wishlistserviceimpl) {
+	public RecommendationImpl(BukuImpl daftarbukuimpl, AkunImpl akunimpl) {
 		this. =  .randomUUID();;
 		this.daftarbukuimpl = daftarbukuimpl;
 		this.akunimpl = akunimpl;
-		this.wishlistserviceimpl = wishlistserviceimpl;
 	}
 
 	public RecommendationImpl() { }
@@ -43,7 +41,6 @@ public class RecommendationImpl extends RecommendationComponent {
         HashMap<String, Object> recommendationMap = new HashMap<String,Object>();
 		recommendationMap.put("daftarbukuimpl",getDaftarbukuimpl());
 		recommendationMap.put("akunimpl",getAkunimpl());
-		recommendationMap.put("wishlistserviceimpl",getWishlistserviceimpl());
 
         return recommendationMap;
     }

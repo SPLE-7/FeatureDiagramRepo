@@ -14,7 +14,7 @@ public class RecommendationServiceImpl extends RecommendationServiceDecorator {
     }
 
     
-	public List<DaftarBuku> generateRecommendationAuthor() {
+	public List<Buku> generateRecommendationAuthor() {
 		// TODO: implement this method
 	}
 }

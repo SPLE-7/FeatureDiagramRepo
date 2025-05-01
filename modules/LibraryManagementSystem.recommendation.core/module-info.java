@@ -1,7 +1,6 @@
 module LibraryManagementSystem.recommendation.core {
-	requires LibraryManagementSystem.daftarbuku.core;
+	requires LibraryManagementSystem.buku.core;
 	requires LibraryManagementSystem.akun.core;
-	requires LibraryManagementSystem.wishlist.core;
 	exports LibraryManagementSystem.recommendation;
     exports LibraryManagementSystem.recommendation.core;
 	requires vmj.routing.route;

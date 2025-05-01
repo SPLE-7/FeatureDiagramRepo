@@ -32,7 +32,7 @@ public class RecommendationImpl extends RecommendationDecorator {
 	}
 
 
-	public List<DaftarBuku> generateRecommendationAuthor() {
+	public List<Buku> generateRecommendationAuthor() {
 		// TODO: implement this method
 	}
 

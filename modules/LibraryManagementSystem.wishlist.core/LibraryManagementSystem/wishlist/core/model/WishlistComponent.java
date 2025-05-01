@@ -18,8 +18,8 @@ public abstract class WishlistComponent implements Wishlist{
 	
 	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
 	public Akun akunimpl;
-	@ManyToOne(targetEntity=LibraryManagementSystem.daftarbuku.core.DaftarBukuComponent.class)
-	public DaftarBuku daftarbukuimpl;
+	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
+	public Buku daftarbukuimpl;
 	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
 	public Akun akunimpl;
 	@ManyToOne(targetEntity=LibraryManagementSystem.akun.core.AkunComponent.class)
@@ -31,7 +31,7 @@ public abstract class WishlistComponent implements Wishlist{
 	} 
 
 	public WishlistComponent(
-        AkunImpl akunimpl, DaftarBukuImpl daftarbukuimpl, AkunImpl akunimpl, AkunImpl akunimpl
+        AkunImpl akunimpl, BukuImpl daftarbukuimpl, AkunImpl akunimpl, AkunImpl akunimpl
     ) {
         this.akunimpl = akunimpl;
         this.daftarbukuimpl = daftarbukuimpl;
@@ -42,8 +42,8 @@ public abstract class WishlistComponent implements Wishlist{
 	public abstract AkunImpl getAkunimpl();
 	public abstract void setAkunimpl(AkunImpl akunimpl);
 	
-	public abstract DaftarBukuImpl getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(DaftarBukuImpl daftarbukuimpl);
+	public abstract BukuImpl getDaftarbukuimpl();
+	public abstract void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
 	
 	public abstract AkunImpl getAkunimpl();
 	public abstract void setAkunimpl(AkunImpl akunimpl);

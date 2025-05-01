@@ -1,5 +1,5 @@
 module LibraryManagementSystem.review.core {
-	requires LibraryManagementSystem.daftarbuku.core;
+	requires LibraryManagementSystem.buku.core;
 	exports LibraryManagementSystem.review;
     exports LibraryManagementSystem.review.core;
 	requires vmj.routing.route;

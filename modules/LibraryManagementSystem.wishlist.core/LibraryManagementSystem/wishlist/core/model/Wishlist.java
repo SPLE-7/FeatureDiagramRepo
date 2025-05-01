@@ -6,8 +6,8 @@ import java.util.*;
 public interface Wishlist {
 	public AkunImpl getAkunimpl();
 	public void setAkunimpl(AkunImpl akunimpl);
-	public DaftarBukuImpl getDaftarbukuimpl();
-	public void setDaftarbukuimpl(DaftarBukuImpl daftarbukuimpl);
+	public BukuImpl getDaftarbukuimpl();
+	public void setDaftarbukuimpl(BukuImpl daftarbukuimpl);
 	public AkunImpl getAkunimpl();
 	public void setAkunimpl(AkunImpl akunimpl);
 	public AkunImpl getAkunimpl();

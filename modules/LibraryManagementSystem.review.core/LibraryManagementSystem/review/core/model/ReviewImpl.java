@@ -19,13 +19,13 @@ import javax.persistence.OneToMany;
 @Table(name="review_impl")
 public class ReviewImpl extends ReviewComponent {
 
-	public ReviewImpl(UUID idReview, Date postedAt, DaftarBukuImpl daftarbukuimpl) {
+	public ReviewImpl(UUID idReview, Date postedAt, BukuImpl daftarbukuimpl) {
 		this.idReview = idReview;
 		this.postedAt = postedAt;
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
-	public ReviewImpl(Date postedAt, DaftarBukuImpl daftarbukuimpl) {
+	public ReviewImpl(Date postedAt, BukuImpl daftarbukuimpl) {
 		this.idReview =  idReview.randomUUID();;
 		this.postedAt = postedAt;
 		this.daftarbukuimpl = daftarbukuimpl;

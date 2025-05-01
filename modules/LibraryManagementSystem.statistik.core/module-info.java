@@ -1,5 +1,5 @@
 module LibraryManagementSystem.statistik.core {
-	requires LibraryManagementSystem.daftarbuku.core;
+	requires LibraryManagementSystem.buku.core;
 	exports LibraryManagementSystem.statistik;
     exports LibraryManagementSystem.statistik.core;
 	requires vmj.routing.route;

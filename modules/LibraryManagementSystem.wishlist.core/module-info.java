@@ -1,5 +1,5 @@
 module LibraryManagementSystem.wishlist.core {
-	requires LibraryManagementSystem.daftarbuku.core;
+	requires LibraryManagementSystem.buku.core;
 	requires LibraryManagementSystem.akun.core;
 	exports LibraryManagementSystem.wishlist;
     exports LibraryManagementSystem.wishlist.core;
