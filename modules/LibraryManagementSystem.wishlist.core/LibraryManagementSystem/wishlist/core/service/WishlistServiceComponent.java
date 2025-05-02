@@ -5,7 +5,7 @@ import vmj.hibernate.integrator.RepositoryUtil;
 import vmj.routing.route.VMJExchange;
 
 import LibraryManagementSystem.buku.core.Buku;
-import vmj.auth.model.core;
+import vmj.auth.model.core.User;
 
 public abstract class WishlistServiceComponent implements WishlistService{
 	protected RepositoryUtil<Wishlist> wishlistRepository;

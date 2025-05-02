@@ -12,10 +12,10 @@
 	<feature automatic="selected" manual="selected" name="Review"/>
 	<feature manual="selected" name="DenganKomentar"/>
 	<feature name="DenganBintang"/>
-	<feature manual="selected" name="Wishlist"/>
-	<feature name="WithNote"/>
-	<feature name="WithStatus"/>
-	<feature name="Rekomendasi"/>
-	<feature name="Genre"/>
-	<feature name="Author"/>
+	<feature automatic="selected" manual="selected" name="Wishlist"/>
+	<feature automatic="unselected" name="WithNote"/>
+	<feature manual="selected" name="WithStatus"/>
+	<feature automatic="selected" manual="selected" name="Rekomendasi"/>
+	<feature manual="selected" name="Genre"/>
+	<feature automatic="unselected" name="Author"/>
 </configuration>

@@ -2,6 +2,7 @@ module LibraryManagementSystem.wishlist.core {
 	requires LibraryManagementSystem.buku.core;
 	exports LibraryManagementSystem.wishlist;
     exports LibraryManagementSystem.wishlist.core;
+	requires vmj.auth.model;
 	requires vmj.routing.route;
 	requires vmj.hibernate.integrator;
 	requires vmj.auth;

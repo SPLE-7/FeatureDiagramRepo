@@ -42,8 +42,6 @@ public abstract class RecommendationComponent implements Recommendation{
 	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
- 
-	public abstract void getRecommendation();
 
 	@Override
     public String toString() {

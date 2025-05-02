@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import LibraryManagementSystem.buku.core.Buku;
-import vmj.auth.model.core;
+import vmj.auth.model.core.User;
 
 @Entity(name = "wishlist_impl")
 @Table(name = "wishlist_impl")

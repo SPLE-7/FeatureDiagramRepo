@@ -6,7 +6,6 @@ import vmj.routing.route.VMJExchange;
 
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResourceDecorator;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuServiceComponent;
-import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuServiceImpl;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResourceComponent;
 
@@ -15,7 +14,7 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
 
 	public PeminjamanBukuResourceImpl (PeminjamanBukuResourceComponent record, PeminjamanBukuServiceComponent peminjamanBukuServiceComponent) {
         super(record);
-		this.peminjamanBukuServiceImpl = new PeminjamanBukuServiceImpl(peminjamanBukuServiceImpl);
+		this.peminjamanBukuServiceImpl = new PeminjamanBukuServiceImpl(peminjamanBukuServiceComponent);
     }
 
 	@Route(url="call/renewal/create")
@@ -26,7 +25,7 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return peminjamanBukuServiceImpl.createPeminjamanBuku(vmjExchange.getPayload());
+		return peminjamanBukuServiceImpl.createPeminjamanBuku(vmjExchange.getPayload()).toHashMap();
 	}
 
 	// @Restriced(permission = "")

@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.util.Map;
 
 import LibraryManagementSystem.buku.core.Buku;
-import vmj.auth.model.core;
+import vmj.auth.model.core.User;
 
 public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 
@@ -29,7 +29,7 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 		Buku daftarbukuimpl = bukuRepository.getObject(UUID.fromString((String) requestBody.get("idBuku")));
 		
 		// Perhatikan nama id user yang dipakai di frontend atau API
-		User akunimpl = userRepository.getObject(requestBody.get("id"));
+		User akunimpl = userRepository.getObject(UUID.fromString((String) requestBody.get("id")));
 	
 		LocalDate tanggalPeminjaman = LocalDate.now();
 		LocalDate tanggalPengembalian = tanggalPeminjaman.plusDays(7);

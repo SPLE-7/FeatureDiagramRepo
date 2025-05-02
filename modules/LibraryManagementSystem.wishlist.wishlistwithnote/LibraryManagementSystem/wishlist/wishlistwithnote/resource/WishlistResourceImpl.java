@@ -13,7 +13,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
     private WishlistServiceImpl wishlistServiceImpl;
 	public WishlistResourceImpl (WishlistResourceComponent record, WishlistServiceComponent wishlistServiceComponent) {
         super(record);
-		this.wishlistServiceImpl = new WishslistServiceImpl(wishlistServiceImpl);
+		this.wishlistServiceImpl = new WishlistServiceImpl(wishlistServiceComponent);
     }
 
     // @Restriced(permission = "")
@@ -22,7 +22,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return wishlistServiceImpl.createWishlist(vmjExchange.getPayload());
+		return wishlistServiceImpl.createWishlist(vmjExchange.getPayload()).toHashMap();
 	}
 
 	// @Restriced(permission = "")
