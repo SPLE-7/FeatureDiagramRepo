@@ -4,6 +4,7 @@ import java.lang.Math;
 import java.util.*;
 import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
+import vmj.auth.model.core;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

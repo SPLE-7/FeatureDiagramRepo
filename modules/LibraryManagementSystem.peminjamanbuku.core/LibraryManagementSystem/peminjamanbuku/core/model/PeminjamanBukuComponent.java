@@ -3,6 +3,7 @@ package LibraryManagementSystem.peminjamanbuku.core;
 import java.util.*;
 import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
+import vmj.auth.model.core;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	protected String status;
 
 	// AMBIL DARI EXTERNAL LIBRARY
-	@ManyToOne(targetEntity=LibraryManagementSystem.user.core.UserComponent.class)
+	@ManyToOne(targetEntity=vmj.auth.model.core.UserComponent.class)
 	public User akunimpl;
 
 	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)

@@ -1,6 +1,7 @@
 package LibraryManagementSystem.peminjamanbuku.core;
 import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
+import vmj.auth.model.core;
 import java.util.*;
 
 public interface PeminjamanBuku {

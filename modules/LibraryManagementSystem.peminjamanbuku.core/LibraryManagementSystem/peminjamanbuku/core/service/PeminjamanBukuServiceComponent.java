@@ -3,6 +3,7 @@ import java.util.*;
 
 import vmj.hibernate.integrator.RepositoryUtil;
 import vmj.routing.route.VMJExchange;
+import vmj.auth.model.core;
 //add other required packages
 
 public abstract class PeminjamanBukuServiceComponent implements PeminjamanBukuService{
@@ -13,7 +14,7 @@ public abstract class PeminjamanBukuServiceComponent implements PeminjamanBukuSe
     public PeminjamanBukuServiceComponent(){
         this.peminjamanRepository = new RepositoryUtil<PeminjamanBuku>(LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuComponent.class);
         this.bukuRepository = new RepositoryUtil<Buku>(LibraryManagementSystem.buku.core.BukuComponent.class);
-        this.userRepository = new RepositoryUtil<User>(LibraryManagementSystem.user.core.UserComponent.class);
+        this.userRepository = new RepositoryUtil<User>(vmj.auth.model.core.UserComponent.class);
     }	
 
     public abstract PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBodye);
