@@ -58,4 +58,14 @@ public class ReviewImpl extends ReviewComponent {
         return reviewMap;
     }
 
+
+    @Override
+    public Buku getDaftarbukuimpl() {
+        // TODO
+    }
+
+    @Override
+    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+        // TODO
+    }
 }

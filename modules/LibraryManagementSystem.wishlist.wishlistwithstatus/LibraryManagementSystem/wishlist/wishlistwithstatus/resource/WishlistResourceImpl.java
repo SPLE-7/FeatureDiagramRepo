@@ -9,78 +9,30 @@ import LibraryManagementSystem.wishlist.core.WishlistImpl;
 import LibraryManagementSystem.wishlist.core.WishlistResourceComponent;
 
 public class WishlistResourceImpl extends WishlistResourceDecorator {
-    public WishlistResourceImpl (WishlistResourceComponent record) {
+    private WishlistServiceImpl wishlistServiceImpl;
+	public WishlistResourceImpl (WishlistResourceComponent record, WishlistServiceImpl wishlistServiceImpl) {
         super(record);
+		this.wishlistServiceImpl = wishlistServiceImpl;
     }
 
-	// TODO: BELOM SEMUA
-    // @Restriced(permission = "")
-    @Route(url="call/wishlistwithstatus/save")
-    public List<HashMap<String,Object>> save(VMJExchange vmjExchange){
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		  = create(vmjExchange);
-		Repository.saveObject();
-		return getAll(vmjExchange);
-	}
-
+	@Route(url="call/wishlistwithstatus/create")
     public Wishlist create(VMJExchange vmjExchange){
-		
-		  = record.create(vmjExchange);
-		 deco = Factory.create("LibraryManagementSystem.wishlistwithstatus.core.WishlistImpl", , status);
-			return deco;
-	}
-
-    public Wishlist create(VMJExchange vmjExchange, int id){
-		  = Repository.getObject(id);
-		int recordId = (((Decorator) saved.getRecord()).getId();
-		
-		  = record.create(vmjExchange);
-		 deco = Factory.create("LibraryManagementSystem.wishlistwithstatus.core.WishlistImpl", id, , status);
-			return deco;
-	}
-
-    // @Restriced(permission = "")
-    @Route(url="call/wishlistwithstatus/update")
-    public HashMap<String, Object> update(VMJExchange vmjExchange){
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		String idStr = (String) vmjExchange.getRequestBodyForm("");
-		int id = Integer.parseInt(idStr);
-		
-		  = Repository.getObject(id);
-		 = create(vmjExchange, id);
-		
-		Repository.updateObject();
-		 = Repository.getObject(id);
-		//to do: fix association attributes
-		
-		return .toHashMap();
-		
+		return wishlistServiceImpl.createWishlist(vmjExchange.getPayload());
 	}
 
 	// @Restriced(permission = "")
     @Route(url="call/wishlistwithstatus/detail")
     public HashMap<String, Object> get(VMJExchange vmjExchange){
-		return record.getWishlist(vmjExchange);
+		return wishlistServiceImpl.getWishlist(vmjExchange.getPayload());
 	}
 
 	// @Restriced(permission = "")
     @Route(url="call/wishlistwithstatus/list")
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
-		List<> List = Repository.getAllObject("_impl");
-		return transformListToHashMap(List);
-	}
-
-    public List<HashMap<String,Object>> transformListToHashMap(List<> List){
-		List<HashMap<String,Object>> resultList = new ArrayList<HashMap<String,Object>>();
-        for(int i = 0; i < List.size(); i++) {
-            resultList.add(List.get(i).toHashMap());
-        }
-
-        return resultList;
+		return wishlistServiceImpl.getAllWishlist(vmjExchange.getPayload());
 	}
 
 	// @Restriced(permission = "")
@@ -90,10 +42,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 			return null;
 		}
 		
-		String idStr = (String) vmjExchange.getRequestBodyForm("");
-		int id = Integer.parseInt(idStr);
-		Repository.deleteObject(id);
-		return getAll(vmjExchange);
+		return wishlistServiceImpl.deleteWishlist(vmjExchange.getPayload());
 	}
 
 	public void updateStatus(UUID bookId, String newStatus) {

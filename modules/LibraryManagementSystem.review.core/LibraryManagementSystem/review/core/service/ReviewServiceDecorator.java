@@ -10,7 +10,7 @@ public abstract class ReviewServiceDecorator extends ReviewServiceComponent{
         this.record = record;
     }
 
-	public ReviewImpl createReview(Map<String, Object> requestBody){
+	public Review createReview(Map<String, Object> requestBody){
 		return record.createReview(requestBody);
 	}
 

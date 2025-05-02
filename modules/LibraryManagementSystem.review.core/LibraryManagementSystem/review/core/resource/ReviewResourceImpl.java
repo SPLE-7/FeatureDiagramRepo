@@ -5,7 +5,7 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.review.ReviewFactory;
-//import prices.auth.vmj.annotations.Restricted;
+import vmj.auth.annotations.Restricted;
 //add other required packages
 
 public class ReviewResourceImpl extends ReviewResourceComponent{
@@ -14,7 +14,7 @@ public class ReviewResourceImpl extends ReviewResourceComponent{
 
 	// @Restriced(permission = "")
     @Route(url="call/review")
-    public HashMap<String,Object> createreview(VMJExchange vmjExchange){
+    public HashMap<String,Object> createReview(VMJExchange vmjExchange){
 		if (vmjExchange.getHttpMethod().equals("POST")) {
 		    Map<String, Object> requestBody = vmjExchange.getPayload(); 
 			Review result = reviewServiceImpl.createReview(requestBody);
@@ -36,5 +36,4 @@ public class ReviewResourceImpl extends ReviewResourceComponent{
 		Map<String, Object> requestBody = vmjExchange.getPayload(); 
 		return reviewServiceImpl.getAllReview(requestBody);
 	}
-
 }

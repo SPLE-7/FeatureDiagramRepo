@@ -26,7 +26,7 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 		// TODO: bingung nama id nya
 		User akunimpl = userRepository.getObject(requestBody.get("id"));
 		//to do: fix association attributes
-		PeminjamanBuku PeminjamanBuku = PeminjamanBukuFactory.createPeminjamanBuku(
+		PeminjamanBuku peminjamanbuku = PeminjamanBukuFactory.createPeminjamanBuku(
 			"LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl"
 		, status
 		, akunimpl

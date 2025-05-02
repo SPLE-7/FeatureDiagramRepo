@@ -17,4 +17,9 @@ public class WishlistServiceImpl extends WishlistServiceDecorator {
 	public void updateStatus(UUID bookId, String newStatus) {
 		// TODO: implement this method
 	}
+
+    @Override
+    public HashMap<String, Object> getWishlistById(int id) {
+        // TODO
+    }
 }

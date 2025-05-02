@@ -37,4 +37,14 @@ public class StatistikImpl extends StatistikComponent {
         return statistikMap;
     }
 
+
+    @Override
+    public Buku getDaftarbukuimpl() {
+        // TODO
+    }
+
+    @Override
+    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+        // TODO
+    }
 }

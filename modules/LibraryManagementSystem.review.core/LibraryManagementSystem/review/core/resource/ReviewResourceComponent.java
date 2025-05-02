@@ -9,7 +9,7 @@ public abstract class ReviewResourceComponent implements ReviewResource{
 	
 	public ReviewResourceComponent() { }
  
-    public abstract Review createReview(VMJExchange vmjExchange);    
+    public abstract HashMap<String, Object> createReview(VMJExchange vmjExchange);    
     public abstract HashMap<String, Object> getReview(VMJExchange vmjExchange);
     public abstract List<HashMap<String,Object>> getAllReview(VMJExchange vmjExchange);
 

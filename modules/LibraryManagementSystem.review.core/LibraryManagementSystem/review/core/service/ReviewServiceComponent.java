@@ -12,7 +12,7 @@ public abstract class ReviewServiceComponent implements ReviewService{
 
     public ReviewServiceComponent(){
         this.reviewRepository = new RepositoryUtil<Review>(LibraryManagementSystem.review.core.ReviewComponent.class);
-        this.bukuRepository = new RepositoryUtil<Wishlist>(LibraryManagementSystem.buku.core.BukuComponent.class);
+        this.bukuRepository = new RepositoryUtil<Buku>(LibraryManagementSystem.buku.core.BukuComponent.class);
         this.userRepository = new RepositoryUtil<User>(LibraryManagementSystem.user.core.UserComponent.class);
     }	
 

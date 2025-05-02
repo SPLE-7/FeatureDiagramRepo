@@ -30,4 +30,14 @@ public class StatistikImpl extends StatistikDecorator {
 		// TODO: implement this method
 	}
 
+
+    @Override
+    public Buku getDaftarbukuimpl() {
+        // TODO
+    }
+
+    @Override
+    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+        // TODO
+    }
 }

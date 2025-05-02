@@ -43,4 +43,14 @@ public class ReviewImpl extends ReviewDecorator {
 	}
 
 
+
+    @Override
+    public Buku getDaftarbukuimpl() {
+        // TODO
+    }
+
+    @Override
+    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+        // TODO
+    }
 }

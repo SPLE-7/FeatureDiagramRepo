@@ -14,7 +14,7 @@ public class WishlistResourceImpl extends WishlistResourceComponent{
 
 	// @Restriced(permission = "")
     @Route(url="call/wishlist")
-    public HashMap<String,Object> createwishlist(VMJExchange vmjExchange){
+    public HashMap<String,Object> createWishlist(VMJExchange vmjExchange){
 		if (vmjExchange.getHttpMethod().equals("POST")) {
 		    Map<String, Object> requestBody = vmjExchange.getPayload(); 
 			Wishlist result = wishlistServiceImpl.createWishlist(requestBody);

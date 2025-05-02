@@ -51,4 +51,24 @@ public class WishlistImpl extends WishlistComponent {
         wishlistMap.put("daftarbukuimpl", getDaftarbukuimpl());
         return wishlistMap;
     }
+
+    @Override
+    public User getAkunimpl() {
+        // TODO
+    }
+
+    @Override
+    public void setAkunimpl(User akunimpl) {
+        // TODO
+    }
+
+    @Override
+    public Buku getDaftarbukuimpl() {
+        // TODO
+    }
+
+    @Override
+    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+        // TODO
+    }
 }

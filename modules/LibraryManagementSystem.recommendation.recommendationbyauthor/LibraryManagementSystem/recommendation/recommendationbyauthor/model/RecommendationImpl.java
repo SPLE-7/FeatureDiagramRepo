@@ -31,4 +31,24 @@ public class RecommendationImpl extends RecommendationDecorator {
 		// TODO: implement this method
 	}
 
+
+    @Override
+    public Buku getDaftarbukuimpl() {
+        // TODO
+    }
+
+    @Override
+    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+        // TODO
+    }
+
+    @Override
+    public User getAkunimpl() {
+        // TODO
+    }
+
+    @Override
+    public void setAkunimpl(User akunimpl) {
+        // TODO
+    }
 }

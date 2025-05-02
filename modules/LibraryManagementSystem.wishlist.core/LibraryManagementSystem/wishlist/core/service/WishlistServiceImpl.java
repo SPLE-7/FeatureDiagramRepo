@@ -77,4 +77,9 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 	public void getWishlist() {
 		// TODO: implement this method
 	}
+
+    @Override
+    public HashMap<String, Object> getWishlistById(int id) {
+        // TODO
+    }
 }

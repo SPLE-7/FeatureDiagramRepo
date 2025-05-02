@@ -18,4 +18,9 @@ public class WishlistServiceImpl extends WishlistServiceDecorator {
 		// TODO: implement this method
 	}
 
+
+    @Override
+    public HashMap<String, Object> getWishlistById(int id) {
+        // TODO
+    }
 }

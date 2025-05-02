@@ -11,7 +11,7 @@ public abstract class ReviewResourceDecorator extends ReviewResourceComponent{
         this.record = record;
     }
 
-    public Review createReview(VMJExchange vmjExchange){
+    public HashMap<String, Object> createReview(VMJExchange vmjExchange){
 		return record.createReview(vmjExchange);
 	}
 

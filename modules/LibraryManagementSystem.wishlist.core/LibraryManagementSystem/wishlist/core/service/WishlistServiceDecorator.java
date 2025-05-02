@@ -10,7 +10,7 @@ public abstract class WishlistServiceDecorator extends WishlistServiceComponent{
         this.record = record;
     }
 
-	public WishlistImpl createWishlist(Map<String, Object> requestBody){
+	public Wishlist createWishlist(Map<String, Object> requestBody){
 		return record.createWishlist(requestBody);
 	}
 
