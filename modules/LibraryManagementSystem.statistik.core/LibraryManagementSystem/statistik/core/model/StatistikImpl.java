@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import LibraryManagementSystem.buku.core.Buku;
+
 
 @Entity(name="statistik_impl")
 @Table(name="statistik_impl")
@@ -28,6 +30,7 @@ public class StatistikImpl extends StatistikComponent {
 
 	public int hitungTotalBuku() {
 		// TODO: implement this method
+        return 0;
 	}
 	
 	public HashMap<String, Object> toHashMap() {
@@ -35,16 +38,5 @@ public class StatistikImpl extends StatistikComponent {
 		statistikMap.put("daftarbukuimpl",getDaftarbukuimpl());
 
         return statistikMap;
-    }
-
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
     }
 }

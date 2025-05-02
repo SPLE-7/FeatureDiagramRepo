@@ -1,6 +1,5 @@
 module LibraryManagementSystem.recommendation.core {
 	requires LibraryManagementSystem.buku.core;
-	requires LibraryManagementSystem.user.core;
 	exports LibraryManagementSystem.recommendation;
     exports LibraryManagementSystem.recommendation.core;
 	requires vmj.routing.route;

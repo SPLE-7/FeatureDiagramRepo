@@ -18,7 +18,7 @@ public class ReviewResourceImpl extends ReviewResourceDecorator {
     }
 
 	@Route(url="call/reviewbintang/create")
-    public Review create(VMJExchange vmjExchange){
+    public HashMap<String, Object> create(VMJExchange vmjExchange){
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}

@@ -14,14 +14,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import LibraryManagementSystem.buku.core.Buku;
 
 @Entity(name="recommendation_impl")
 @Table(name="recommendation_impl")
 public class RecommendationImpl extends RecommendationComponent {
 
-	public RecommendationImpl(Buku daftarbukuimpl, User akunimpl) {
+	public RecommendationImpl(Buku daftarbukuimpl) {
 		this.daftarbukuimpl = daftarbukuimpl;
-		this.akunimpl = akunimpl;
 	}
 
 	public RecommendationImpl() { }
@@ -29,34 +29,13 @@ public class RecommendationImpl extends RecommendationComponent {
 
 	public void getRecommendation() {
 		// TODO: implement this method
+        System.out.println("");
 	}
 	
 	public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> recommendationMap = new HashMap<String,Object>();
 		recommendationMap.put("daftarbukuimpl",getDaftarbukuimpl());
-		recommendationMap.put("akunimpl",getAkunimpl());
 
         return recommendationMap;
-    }
-
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
-    }
-
-    @Override
-    public User getAkunimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setAkunimpl(User akunimpl) {
-        // TODO
     }
 }

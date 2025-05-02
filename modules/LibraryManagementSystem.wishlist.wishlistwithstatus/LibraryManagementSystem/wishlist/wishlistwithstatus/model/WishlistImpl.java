@@ -38,25 +38,4 @@ public class WishlistImpl extends WishlistDecorator {
 	public void updateStatus(UUID bookId, String newStatus) {
 		// TODO: implement this method
 	}
-
-
-    @Override
-    public User getAkunimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setAkunimpl(User akunimpl) {
-        // TODO
-    }
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
-    }
 }

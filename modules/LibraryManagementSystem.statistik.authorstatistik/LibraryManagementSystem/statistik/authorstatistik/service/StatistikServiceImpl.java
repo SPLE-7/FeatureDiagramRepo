@@ -15,5 +15,6 @@ public class StatistikServiceImpl extends StatistikServiceDecorator {
 
 	public int hitungTotalBuku() {
 		// TODO: implement this method
+        return 0;
 	}
 }

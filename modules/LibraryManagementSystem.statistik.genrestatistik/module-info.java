@@ -1,6 +1,7 @@
 module LibraryManagementSystem.statistik.genrestatistik {
 	requires LibraryManagementSystem.statistik.core;
     exports LibraryManagementSystem.statistik.genrestatistik;
+	requires LibraryManagementSystem.buku.core;
 
 	requires vmj.routing.route;
 	requires vmj.hibernate.integrator;

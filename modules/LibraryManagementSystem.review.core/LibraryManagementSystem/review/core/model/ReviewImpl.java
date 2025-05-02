@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import LibraryManagementSystem.buku.core.Buku;
 
 @Entity(name="review_impl")
 @Table(name="review_impl")
@@ -56,16 +57,5 @@ public class ReviewImpl extends ReviewComponent {
 		reviewMap.put("daftarbukuimpl",getDaftarbukuimpl());
 
         return reviewMap;
-    }
-
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
     }
 }

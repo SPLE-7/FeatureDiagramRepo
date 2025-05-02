@@ -25,30 +25,4 @@ public class RecommendationImpl extends RecommendationDecorator {
 		super(record);
 		this.objectName = RecommendationImpl.class.getName();
 	}
-
-
-	public List<Buku> generateRecommendationGenre() {
-		// TODO: implement this method
-	}
-
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
-    }
-
-    @Override
-    public User getAkunimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setAkunimpl(User akunimpl) {
-        // TODO
-    }
 }

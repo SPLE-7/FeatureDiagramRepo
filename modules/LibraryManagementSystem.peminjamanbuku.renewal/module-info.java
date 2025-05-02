@@ -1,5 +1,6 @@
 module LibraryManagementSystem.peminjamanbuku.renewal {
 	requires LibraryManagementSystem.peminjamanbuku.core;
+	requires LibraryManagementSystem.buku.core;
     exports LibraryManagementSystem.peminjamanbuku.renewal;
 
 	requires vmj.routing.route;

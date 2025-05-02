@@ -10,6 +10,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import javax.persistence.ManyToOne;
+
+import LibraryManagementSystem.buku.core.Buku;
+
 @Entity
 @Table(name="statistik_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -30,9 +34,13 @@ public abstract class StatistikComponent implements Statistik{
         this.daftarbukuimpl = daftarbukuimpl;
     }
 
-	public abstract Buku getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
-	
+	public Buku getDaftarbukuimpl() {
+		return this.daftarbukuimpl;
+	}
+
+	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+		this.daftarbukuimpl = daftarbukuimpl;
+	}
  
 	public abstract int hitungTotalBuku();
 

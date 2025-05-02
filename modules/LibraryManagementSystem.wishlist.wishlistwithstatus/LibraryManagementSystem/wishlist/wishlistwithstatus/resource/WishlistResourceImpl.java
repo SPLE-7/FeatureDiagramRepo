@@ -7,16 +7,17 @@ import vmj.routing.route.VMJExchange;
 import LibraryManagementSystem.wishlist.core.WishlistResourceDecorator;
 import LibraryManagementSystem.wishlist.core.WishlistImpl;
 import LibraryManagementSystem.wishlist.core.WishlistResourceComponent;
+import LibraryManagementSystem.wishlist.core.WishlistServiceComponent;
 
 public class WishlistResourceImpl extends WishlistResourceDecorator {
     private WishlistServiceImpl wishlistServiceImpl;
-	public WishlistResourceImpl (WishlistResourceComponent record, WishlistServiceImpl wishlistServiceImpl) {
+	public WishlistResourceImpl (WishlistResourceComponent record, WishlistServiceComponent wishlistServiceComponent) {
         super(record);
-		this.wishlistServiceImpl = wishlistServiceImpl;
+		this.wishlistServiceImpl = new WishslistServiceImpl(wishlistServiceImpl);
     }
 
 	@Route(url="call/wishlistwithstatus/create")
-    public Wishlist create(VMJExchange vmjExchange){
+    public HashMap<String, Object> create(VMJExchange vmjExchange){
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}

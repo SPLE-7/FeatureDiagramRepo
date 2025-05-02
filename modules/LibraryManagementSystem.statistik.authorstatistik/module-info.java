@@ -1,6 +1,7 @@
 module LibraryManagementSystem.statistik.authorstatistik {
 	requires LibraryManagementSystem.statistik.core;
     exports LibraryManagementSystem.statistik.authorstatistik;
+	requires LibraryManagementSystem.buku.core;
 
 	requires vmj.routing.route;
 	requires vmj.hibernate.integrator;

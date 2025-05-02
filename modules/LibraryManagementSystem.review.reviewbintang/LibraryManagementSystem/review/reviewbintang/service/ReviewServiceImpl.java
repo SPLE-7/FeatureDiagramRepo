@@ -12,6 +12,4 @@ public class ReviewServiceImpl extends ReviewServiceDecorator {
     public ReviewServiceImpl (ReviewServiceComponent record) {
         super(record);
     }
-
-    
 }

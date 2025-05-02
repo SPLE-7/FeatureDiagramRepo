@@ -5,6 +5,8 @@ import vmj.hibernate.integrator.RepositoryUtil;
 import vmj.routing.route.VMJExchange;
 //add other required packages
 
+import LibraryManagementSystem.buku.core.Buku;
+
 public abstract class PeminjamanBukuServiceComponent implements PeminjamanBukuService{
 	protected RepositoryUtil<PeminjamanBuku> peminjamanRepository;
     protected RepositoryUtil<Buku> bukuRepository;

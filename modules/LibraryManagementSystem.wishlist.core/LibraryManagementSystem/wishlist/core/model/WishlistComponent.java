@@ -12,13 +12,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import LibraryManagementSystem.buku.core.Buku;
+
 @Entity
 @Table(name = "wishlist_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class WishlistComponent implements Wishlist {
     @Id
     @GeneratedValue
-    private UUID id;
+    public UUID idWishlist;
 
 	// TODO: Import external library 
     @ManyToOne(targetEntity = LibraryManagementSystem.user.core.UserComponent.class)
@@ -36,15 +38,21 @@ public abstract class WishlistComponent implements Wishlist {
         this.daftarbukuimpl = daftarbukuimpl;
     }
 
-    public abstract User getAkunimpl();
-    public abstract void setAkunimpl(User akunimpl);
+    public User getAkunimpl() {
+		return this.akunimpl;
+	}
 
-    public abstract Buku getDaftarbukuimpl();
-    public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
+	public void setAkunimpl(User akunimpl) {
+		this.akunimpl = akunimpl;
+	}
 
-    public abstract void addBookToWishlist();
-    public abstract void removeBookFromWishlist();
-    public abstract void getWishlist();
+    public Buku getDaftarbukuimpl() {
+		return this.daftarbukuimpl;
+	}
+
+	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+		this.daftarbukuimpl = daftarbukuimpl;
+	}
 
     @Override
     public String toString() {

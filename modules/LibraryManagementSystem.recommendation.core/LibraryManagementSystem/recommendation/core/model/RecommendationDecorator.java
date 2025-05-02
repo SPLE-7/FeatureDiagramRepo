@@ -30,7 +30,7 @@ public abstract class RecommendationDecorator extends RecommendationComponent{
 
 
 	public void getRecommendation() {
-		return record.getRecommendation();
+		System.out.println("");
 	}
 
 	public HashMap<String, Object> toHashMap() {

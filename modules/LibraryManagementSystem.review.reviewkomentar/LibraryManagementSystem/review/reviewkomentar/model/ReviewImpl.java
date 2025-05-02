@@ -30,17 +30,4 @@ public class ReviewImpl extends ReviewDecorator {
 		super(record);
 		this.objectName = ReviewImpl.class.getName();
 	}
-
-
-
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
-    }
 }

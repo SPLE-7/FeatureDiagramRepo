@@ -1,6 +1,7 @@
 module LibraryManagementSystem.recommendation.recommendationbyauthor {
 	requires LibraryManagementSystem.recommendation.core;
     exports LibraryManagementSystem.recommendation.recommendationbyauthor;
+	requires LibraryManagementSystem.buku.core;
 
 	requires vmj.routing.route;
 	requires vmj.hibernate.integrator;

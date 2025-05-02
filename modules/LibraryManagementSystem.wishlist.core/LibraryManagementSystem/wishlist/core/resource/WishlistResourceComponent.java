@@ -13,10 +13,4 @@ public abstract class WishlistResourceComponent implements WishlistResource{
     public abstract HashMap<String, Object> getWishlist(VMJExchange vmjExchange);
     public abstract List<HashMap<String,Object>> getAllWishlist(VMJExchange vmjExchange);
     public abstract List<HashMap<String,Object>> deleteWishlist(VMJExchange vmjExchange);
-
-	public abstract void addBookToWishlist();
-
-	public abstract void removeBookFromWishlist();
-
-	public abstract void getWishlist();
 }

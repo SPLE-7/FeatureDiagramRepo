@@ -12,6 +12,8 @@ import LibraryManagementSystem.statistik.core.StatistikDecorator;
 import LibraryManagementSystem.statistik.core.Statistik;
 import LibraryManagementSystem.statistik.core.StatistikComponent;
 
+import LibraryManagementSystem.buku.core.Buku;
+
 @Entity(name="statistik_authorstatistik")
 @Table(name="statistik_authorstatistik")
 public class StatistikImpl extends StatistikDecorator {
@@ -28,16 +30,6 @@ public class StatistikImpl extends StatistikDecorator {
 
 	public int hitungTotalBuku() {
 		// TODO: implement this method
+        return 0;
 	}
-
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
-    }
 }

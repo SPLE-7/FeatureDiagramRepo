@@ -29,16 +29,4 @@ public abstract class WishlistServiceDecorator extends WishlistServiceComponent{
     public List<HashMap<String,Object>> deleteWishlist(Map<String, Object> requestBody){
 		return record.deleteWishlist(requestBody);
 	}
-
-	public void addBookToWishlist() {
-		return record.addBookToWishlist();
-	}
-
-	public void removeBookFromWishlist() {
-		return record.removeBookFromWishlist();
-	}
-
-	public void getWishlist() {
-		return record.getWishlist();
-	}
 }

@@ -80,25 +80,4 @@ public class PeminjamanBukuImpl extends PeminjamanBukuComponent {
 
         return peminjamanbukuMap;
     }
-
-
-    @Override
-    public User getAkunimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setAkunimpl(User akunimpl) {
-        // TODO
-    }
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
-    }
 }

@@ -13,8 +13,8 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceDecorator {
         super(record);
     }
 
-    
 	public boolean RequestRenewal() {
 		// TODO: implement this method
+        return true;
 	}
 }

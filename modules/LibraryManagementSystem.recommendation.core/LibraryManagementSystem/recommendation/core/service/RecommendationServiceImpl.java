@@ -20,18 +20,6 @@ import vmj.auth.annotations.Restricted;
 
 public class RecommendationServiceImpl extends RecommendationServiceComponent{
 
-    // public HashMap<String, Object> getRecommendation(Map<String, Object> requestBody){
-	// 	List<HashMap<String, Object>> recommendationList = getAllRecommendation("recommendation_impl");
-	// 	for (HashMap<String, Object> recommendation : recommendationList){
-	// 		// ga ada id
-	// 		int record_id = ((Double) recommendation.get("record_id")).intValue();
-	// 		if (record_id == id){
-	// 			return recommendation;
-	// 		}
-	// 	}
-	// 	return null;
-	// }
-
     public List<HashMap<String,Object>> getAllRecommendation(Map<String, Object> requestBody){
 		String table = (String) requestBody.get("table_name");
 		List<Recommendation> List = recommendationRepository.getAllObject(table);
@@ -46,6 +34,5 @@ public class RecommendationServiceImpl extends RecommendationServiceComponent{
 
         return resultList;
 	}
-
 
 }

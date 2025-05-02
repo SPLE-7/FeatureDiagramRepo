@@ -30,16 +30,4 @@ public abstract class WishlistResourceDecorator extends WishlistResourceComponen
     public List<HashMap<String,Object>> deleteWishlist(VMJExchange vmjExchange){
 		return record.deleteWishlist(vmjExchange);
 	}
-
-	public void addBookToWishlist() {
-		return record.addBookToWishlist();
-	}
-
-	public void removeBookFromWishlist() {
-		return record.removeBookFromWishlist();
-	}
-
-	public void getWishlist() {
-		return record.getWishlist();
-	}
 }

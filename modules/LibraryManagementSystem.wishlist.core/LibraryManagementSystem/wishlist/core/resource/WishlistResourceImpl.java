@@ -48,16 +48,4 @@ public class WishlistResourceImpl extends WishlistResourceComponent{
 		
 		return wishlistServiceImpl.deleteWishlist(requestBody);
 	}
-
-	public void addBookToWishlist() {
-		// TODO: implement this method
-	}
-
-	public void removeBookFromWishlist() {
-		// TODO: implement this method
-	}
-
-	public void getWishlist() {
-		// TODO: implement this method
-	}
 }

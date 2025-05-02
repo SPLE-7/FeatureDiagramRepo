@@ -1,6 +1,7 @@
 module LibraryManagementSystem.review.reviewbintang {
 	requires LibraryManagementSystem.review.core;
     exports LibraryManagementSystem.review.reviewbintang;
+	requires LibraryManagementSystem.buku.core;
 
 	requires vmj.routing.route;
 	requires vmj.hibernate.integrator;

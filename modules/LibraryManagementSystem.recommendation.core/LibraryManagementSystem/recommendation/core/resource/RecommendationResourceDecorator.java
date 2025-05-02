@@ -11,10 +11,6 @@ public abstract class RecommendationResourceDecorator extends RecommendationReso
         this.record = record;
     }
 
-    public HashMap<String, Object> getRecommendation(VMJExchange vmjExchange){
-		return record.getRecommendation(vmjExchange);
-	}
-
     public List<HashMap<String,Object>> getAllRecommendation(VMJExchange vmjExchange){
 		return record.getAllRecommendation(vmjExchange);
 	}

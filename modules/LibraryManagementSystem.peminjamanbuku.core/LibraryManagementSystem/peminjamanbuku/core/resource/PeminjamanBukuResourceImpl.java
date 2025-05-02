@@ -13,7 +13,7 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceComponent{
 	private PeminjamanBukuServiceImpl peminjamanbukuServiceImpl = new PeminjamanBukuServiceImpl();
 	// @Restriced(permission = "")
     @Route(url="call/peminjamanbuku")
-    public HashMap<String,Object> createpeminjamanbuku(VMJExchange vmjExchange){
+    public HashMap<String,Object> createPeminjamanBuku(VMJExchange vmjExchange){
 		if (vmjExchange.getHttpMethod().equals("POST")) {
 		    Map<String, Object> requestBody = vmjExchange.getPayload(); 
 			PeminjamanBuku result = peminjamanbukuServiceImpl.createPeminjamanBuku(requestBody);
@@ -35,5 +35,4 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceComponent{
 		Map<String, Object> requestBody = vmjExchange.getPayload(); 
 		return peminjamanbukuServiceImpl.getAllPeminjamanBuku(requestBody);
 	}
-
 }

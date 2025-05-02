@@ -2,6 +2,8 @@ module LibraryManagementSystem.recommendation.recommendationbygenre {
 	requires LibraryManagementSystem.recommendation.core;
     exports LibraryManagementSystem.recommendation.recommendationbygenre;
 
+	requires LibraryManagementSystem.buku.core;
+
 	requires vmj.routing.route;
 	requires vmj.hibernate.integrator;
 	requires vmj.auth;

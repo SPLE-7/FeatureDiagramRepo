@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import LibraryManagementSystem.buku.core.Buku;
+
 @Entity
 @Table(name="peminjamanbuku_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -60,11 +62,22 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public abstract User getAkunimpl();
-	public abstract void setAkunimpl(User akunimpl);
 	
-	public abstract Buku getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
+	public User getAkunimpl() {
+		return this.akunimpl;
+	}
+
+	public void setAkunimpl(User akunimpl) {
+		this.akunimpl = akunimpl;
+	}
+
+    public Buku getDaftarbukuimpl() {
+		return this.daftarbukuimpl;
+	}
+
+	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+		this.daftarbukuimpl = daftarbukuimpl;
+	}
 	
 	public Date getTanggalPeminjaman() {
 		return this.tanggalPeminjaman;

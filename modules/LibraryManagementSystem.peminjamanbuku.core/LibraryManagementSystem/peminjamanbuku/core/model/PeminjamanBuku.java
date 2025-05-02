@@ -3,6 +3,8 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 import java.util.*;
 
+import LibraryManagementSystem.buku.core.Buku;
+
 public interface PeminjamanBuku {
 	public UUID getIdPeminjamanBuku();
 	public void setIdPeminjamanBuku(UUID idPeminjamanBuku);

@@ -7,20 +7,17 @@ import vmj.routing.route.VMJExchange;
 import LibraryManagementSystem.recommendation.core.RecommendationResourceDecorator;
 import LibraryManagementSystem.recommendation.core.RecommendationImpl;
 import LibraryManagementSystem.recommendation.core.RecommendationResourceComponent;
+import LibraryManagementSystem.recommendation.core.RecommendationServiceComponent;
+
+import LibraryManagementSystem.buku.core.Buku;
 
 public class RecommendationResourceImpl extends RecommendationResourceDecorator {
     private RecommendationServiceImpl recommendationServiceImpl;
 
-	public RecommendationResourceImpl (RecommendationResourceComponent record, RecommendationServiceImpl recommendationServiceImpl) {
+	public RecommendationResourceImpl (RecommendationResourceComponent record, RecommendationServiceComponent recommendationServiceComponent) {
         super(record);
-		this.recommendationServiceImpl = recommendationServiceImpl;
+		this.recommendationServiceImpl = new RecommendationServiceImpl(recommendationServiceComponent);
     }
-
-	// @Restriced(permission = "")
-    // @Route(url="call/recommendationbygenre/detail")
-    // public HashMap<String, Object> get(VMJExchange vmjExchange){
-	// 	return record.getRecommendation(vmjExchange);
-	// }
 
 	// @Restriced(permission = "")
     @Route(url="call/recommendationbygenre/list")
@@ -29,6 +26,6 @@ public class RecommendationResourceImpl extends RecommendationResourceDecorator 
 	}
 
 	public List<Buku> generateRecommendationGenre() {
-		// TODO: implement this method
+		return recommendationServiceImpl.generateRecommendationGenre();
 	}
 }

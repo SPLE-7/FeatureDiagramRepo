@@ -16,22 +16,10 @@ import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.statistik.StatistikFactory;
 import vmj.auth.annotations.Restricted;
-//add other required packages
+
+import LibraryManagementSystem.buku.core.Buku;
 
 public class StatistikServiceImpl extends StatistikServiceComponent{
-
-
-    // public HashMap<String, Object> getStatistik(Map<String, Object> requestBody){
-	// 	List<HashMap<String, Object>> statistikList = getAllStatistik("statistik_impl");
-	// 	for (HashMap<String, Object> statistik : statistikList){
-	// 		// TODO
-	// 		// int record_id = ((Double) statistik.get("record_id")).intValue();
-	// 		// if (record_id == id){
-	// 		// 	return statistik;
-	// 		// }
-	// 	}
-	// 	return null;
-	// }
 
     public List<HashMap<String,Object>> getAllStatistik(Map<String, Object> requestBody){
 		String table = (String) requestBody.get("table_name");
@@ -49,10 +37,11 @@ public class StatistikServiceImpl extends StatistikServiceComponent{
 	}
 
 	public int hitungTotalBuku() {
-		// TODO: implement this method
+		// TODO: implement this method (not used)
+		return 0;
 	}
 
 	public List<Buku> getListObject() {
-        return statistikRepository.getListObject("table_name", "amount", "10000");
+        return bukuRepository.getListObject("table_name", "amount", "10000");
     }
 }

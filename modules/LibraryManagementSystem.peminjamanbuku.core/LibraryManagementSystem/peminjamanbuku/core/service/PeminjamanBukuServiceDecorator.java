@@ -10,7 +10,7 @@ public abstract class PeminjamanBukuServiceDecorator extends PeminjamanBukuServi
         this.record = record;
     }
 
-	public PeminjamanBukuImpl createPeminjamanBuku(Map<String, Object> requestBody){
+	public PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBody){
 		return record.createPeminjamanBuku(requestBody);
 	}
 

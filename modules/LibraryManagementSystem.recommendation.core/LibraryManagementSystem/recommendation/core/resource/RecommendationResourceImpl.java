@@ -13,13 +13,6 @@ public class RecommendationResourceImpl extends RecommendationResourceComponent{
 	private RecommendationServiceImpl recommendationServiceImpl = new RecommendationServiceImpl();
 
 	// @Restriced(permission = "")
-    @Route(url="call/recommendation/detail")
-    public HashMap<String, Object> getRecommendation(VMJExchange vmjExchange){
-		Map<String, Object> requestBody = vmjExchange.getPayload(); 
-		return recommendationServiceImpl.getRecommendation(requestBody);
-	}
-
-	// @Restriced(permission = "")
     @Route(url="call/recommendation/list")
     public List<HashMap<String,Object>> getAllRecommendation(VMJExchange vmjExchange){
 		Map<String, Object> requestBody = vmjExchange.getPayload(); 

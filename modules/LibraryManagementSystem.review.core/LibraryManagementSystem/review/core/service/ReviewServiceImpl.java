@@ -18,10 +18,13 @@ import LibraryManagementSystem.review.ReviewFactory;
 import vmj.auth.annotations.Restricted;
 //add other required packages
 
+import LibraryManagementSystem.buku.core.Buku;
+
 public class ReviewServiceImpl extends ReviewServiceComponent{
 
     public Review createReview(Map<String, Object> requestBody){
 		Buku daftarbukuimpl = bukuRepository.getObject(requestBody.get("idBuku"));
+		Date postedAt = Date.now();
 		//to do: fix association attributes
 		Review review = ReviewFactory.createReview(
 			"LibraryManagementSystem.review.core.ReviewImpl"

@@ -4,6 +4,8 @@ import java.util.*;
 import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 
+import LibraryManagementSystem.buku.core.Buku;
+
 public abstract class StatistikResourceDecorator extends StatistikResourceComponent{
 	protected StatistikResourceComponent record;
 
@@ -11,15 +13,15 @@ public abstract class StatistikResourceDecorator extends StatistikResourceCompon
         this.record = record;
     }
 
-    public HashMap<String, Object> getStatistik(VMJExchange vmjExchange){
-		return record.getStatistik(vmjExchange);
-	}
-
     public List<HashMap<String,Object>> getAllStatistik(VMJExchange vmjExchange){
 		return record.getAllStatistik(vmjExchange);
 	}
 
 	public int hitungTotalBuku() {
 		return record.hitungTotalBuku();
+	}
+
+	public List<Buku> getListObject(){
+		return record.getListObject();
 	}
 }

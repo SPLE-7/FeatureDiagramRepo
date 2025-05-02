@@ -13,14 +13,7 @@ public class WishlistServiceImpl extends WishlistServiceDecorator {
         super(record);
     }
 
-    
 	public void updateNote(UUID bookId, String newNotes) {
 		// TODO: implement this method
 	}
-
-
-    @Override
-    public HashMap<String, Object> getWishlistById(int id) {
-        // TODO
-    }
 }

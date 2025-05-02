@@ -5,6 +5,7 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResourceDecorator;
+import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuServiceComponent;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuServiceImpl;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResourceComponent;
@@ -12,13 +13,13 @@ import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResourceCompone
 public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator {
     private PeminjamanBukuServiceImpl peminjamanBukuServiceImpl;
 
-	public PeminjamanBukuResourceImpl (PeminjamanBukuResourceComponent record, PeminjamanBukuServiceImpl peminjamanBukuServiceImpl) {
+	public PeminjamanBukuResourceImpl (PeminjamanBukuResourceComponent record, PeminjamanBukuServiceComponent peminjamanBukuServiceComponent) {
         super(record);
-		this.peminjamanBukuServiceImpl = peminjamanBukuServiceImpl;
+		this.peminjamanBukuServiceImpl = new PeminjamanBukuServiceImpl(peminjamanBukuServiceImpl);
     }
 
 	@Route(url="call/renewal/create")
-    public PeminjamanBuku create(VMJExchange vmjExchange){
+    public HashMap<String, Object> create(VMJExchange vmjExchange){
 		String renewalCountStr = (String) vmjExchange.getRequestBodyForm("renewalCount");
 		int renewalCount = Integer.parseInt(renewalCountStr);
 		
@@ -42,5 +43,6 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
 
 	public boolean RequestRenewal() {
 		// TODO: implement this method
+		return true;
 	}
 }

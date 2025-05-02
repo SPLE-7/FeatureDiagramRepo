@@ -7,14 +7,15 @@ import vmj.routing.route.VMJExchange;
 import javax.persistence.OneToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.CascadeType;
-//add other required packages
+
+import LibraryManagementSystem.buku.core.Buku;
 
 @MappedSuperclass
 public abstract class WishlistDecorator extends WishlistComponent {
     @OneToOne(cascade = CascadeType.ALL)
     protected WishlistComponent record;
 
-    protected UUID id = UUID.randomUUID();
+    protected UUID idWishlist = UUID.randomUUID();
 
     public WishlistDecorator() {
         super();
@@ -29,18 +30,6 @@ public abstract class WishlistDecorator extends WishlistComponent {
         super();
         this.record = record;
         this.objectName = objectName;
-    }
-
-    public void addBookToWishlist() {
-        record.addBookToWishlist();
-    }
-
-    public void removeBookFromWishlist() {
-        record.removeBookFromWishlist();
-    }
-
-    public void getWishlist() {
-        record.getWishlist();
     }
 
     public HashMap<String, Object> toHashMap() {

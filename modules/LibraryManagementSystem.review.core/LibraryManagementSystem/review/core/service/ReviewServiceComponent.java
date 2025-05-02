@@ -5,6 +5,8 @@ import vmj.hibernate.integrator.RepositoryUtil;
 import vmj.routing.route.VMJExchange;
 //add other required packages
 
+import LibraryManagementSystem.buku.core.Buku;
+
 public abstract class ReviewServiceComponent implements ReviewService{
 	protected RepositoryUtil<Review> reviewRepository;
     protected RepositoryUtil<Buku> bukuRepository;

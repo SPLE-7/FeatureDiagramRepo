@@ -7,19 +7,14 @@ import vmj.routing.route.VMJExchange;
 import LibraryManagementSystem.statistik.core.StatistikResourceDecorator;
 import LibraryManagementSystem.statistik.core.StatistikImpl;
 import LibraryManagementSystem.statistik.core.StatistikResourceComponent;
+import LibraryManagementSystem.statistik.core.StatistikServiceComponent;
 
 public class StatistikResourceImpl extends StatistikResourceDecorator {
     private StatistikServiceImpl statistikServiceImpl;
-	public StatistikResourceImpl (StatistikResourceComponent record, StatistikServiceImpl statistikServiceImpl) {
+	public StatistikResourceImpl (StatistikResourceComponent record, StatistikServiceComponent statistikServiceComponent) {
         super(record);
-		this.statistikServiceImpl = statistikServiceImpl;
+		this.statistikServiceImpl = new StatistikServiceImpl(statistikServiceComponent);
     }
-
-	// // @Restriced(permission = "")
-    // @Route(url="call/authorstatistik/detail")
-    // public HashMap<String, Object> get(VMJExchange vmjExchange){
-	// 	return record.getStatistik(vmjExchange);
-	// }
 
 	// @Restriced(permission = "")
     @Route(url="call/authorstatistik/list")
@@ -29,5 +24,6 @@ public class StatistikResourceImpl extends StatistikResourceDecorator {
 
 	public int hitungTotalBuku() {
 		// TODO: implement this method
+		return statistikServiceImpl.hitungTotalBuku();
 	}
 }

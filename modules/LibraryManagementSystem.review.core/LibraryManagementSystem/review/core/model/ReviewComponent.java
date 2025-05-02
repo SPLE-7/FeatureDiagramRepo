@@ -10,12 +10,15 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import LibraryManagementSystem.buku.core.Buku;
+
 @Entity
 @Table(name="review_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ReviewComponent implements Review{
 	@Id
 	protected UUID idReview; 
+
 	protected Date postedAt;
 	public Buku daftarbukuimpl;
 	protected String objectName = ReviewComponent.class.getName();
@@ -46,10 +49,15 @@ public abstract class ReviewComponent implements Review{
 	public void setPostedAt(Date postedAt) {
 		this.postedAt = postedAt;
 	}
-	public abstract Buku getDaftarbukuimpl();
-	public abstract void setDaftarbukuimpl(Buku daftarbukuimpl);
 	
- 
+	public Buku getDaftarbukuimpl() {
+		return this.daftarbukuimpl;
+	}
+
+	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+		this.daftarbukuimpl = daftarbukuimpl;
+	}
+	
 
 	@Override
     public String toString() {

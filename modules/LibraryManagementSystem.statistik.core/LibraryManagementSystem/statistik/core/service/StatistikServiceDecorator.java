@@ -3,16 +3,14 @@ import java.util.*;
 
 import vmj.routing.route.VMJExchange;
 
+import LibraryManagementSystem.buku.core.Buku;
+
 public abstract class StatistikServiceDecorator extends StatistikServiceComponent{
 	protected StatistikServiceComponent record;
 
     public StatistikServiceDecorator(StatistikServiceComponent record) {
         this.record = record;
     }
-
-	// public HashMap<String, Object> getStatistik(Map<String, Object> requestBody){
-	// 	return record.getStatistik(requestBody);
-	// }
 
 	public List<HashMap<String,Object>> getAllStatistik(Map<String, Object> requestBody){
 		return record.getAllStatistik(requestBody);

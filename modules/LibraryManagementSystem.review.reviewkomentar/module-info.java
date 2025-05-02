@@ -1,6 +1,7 @@
 module LibraryManagementSystem.review.reviewkomentar {
 	requires LibraryManagementSystem.review.core;
     exports LibraryManagementSystem.review.reviewkomentar;
+	requires LibraryManagementSystem.buku.core;
 
 	requires vmj.routing.route;
 	requires vmj.hibernate.integrator;

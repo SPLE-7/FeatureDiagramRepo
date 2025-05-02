@@ -1,7 +1,6 @@
 package LibraryManagementSystem.peminjamanbuku.core;
 import java.util.*;
 import com.google.gson.Gson;
-import java.util.*;
 import java.util.logging.Logger;
 import java.io.File;
 import java.net.URI;
@@ -16,24 +15,33 @@ import vmj.routing.route.VMJExchange;
 import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.peminjamanbuku.PeminjamanBukuFactory;
 import vmj.auth.annotations.Restricted;
-//add other required packages
+
+import java.time.LocalDate;
+import java.util.Map;
+
+import LibraryManagementSystem.buku.core.Buku;
 
 public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 
-    public PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBody){
+    public PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBody) {
 		String status = (String) requestBody.get("status");
 		Buku daftarbukuimpl = bukuRepository.getObject(requestBody.get("idBuku"));
-		// TODO: bingung nama id nya
+		
+		// Perhatikan nama id user yang dipakai di frontend atau API
 		User akunimpl = userRepository.getObject(requestBody.get("id"));
-		//to do: fix association attributes
+	
+		LocalDate tanggalPeminjaman = LocalDate.now();
+		LocalDate tanggalPengembalian = tanggalPeminjaman.plusDays(7);
+
 		PeminjamanBuku peminjamanbuku = PeminjamanBukuFactory.createPeminjamanBuku(
-			"LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl"
-		, status
-		, akunimpl
-		, daftarbukuimpl
-		, tanggalPeminjaman
-		, tanggalPengembalian
+			"LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl",
+			status,
+			akunimpl,
+			daftarbukuimpl,
+			tanggalPeminjaman,
+			tanggalPengembalian
 		);
+	
 		Repository.saveObject(peminjamanbuku);
 		return peminjamanbuku;
 	}

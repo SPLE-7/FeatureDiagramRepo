@@ -18,6 +18,8 @@ import LibraryManagementSystem.wishlist.WishlistFactory;
 import vmj.auth.annotations.Restricted;
 //add other required packages
 
+import LibraryManagementSystem.buku.core.Buku;
+
 public class WishlistServiceImpl extends WishlistServiceComponent{
 
     public Wishlist createWishlist(Map<String, Object> requestBody){
@@ -37,8 +39,8 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
     public HashMap<String, Object> getWishlist(Map<String, Object> requestBody){
 		List<HashMap<String, Object>> wishlistList = getAllWishlist("wishlist_impl");
 		for (HashMap<String, Object> wishlist : wishlistList){
-			UUID recordId = UUID.fromString((String) wishlist.get("id"));
-			if (record_id.equals(requestBody.get("id"))){
+			UUID recordId = UUID.fromString((String) wishlist.get("idWishlist"));
+			if (record_id.equals(requestBody.get("idWishlist"))){
 				return wishlist;
 			}
 		}
@@ -61,25 +63,8 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 	}
 
     public List<HashMap<String,Object>> deleteWishlist(Map<String, Object> requestBody){
-		UUID recordId = UUID.fromString((String) requestBody.get("id"));
+		UUID recordId = UUID.fromString((String) requestBody.get("idWishlist"));
 		wishlistRepository.deleteObject(recordId);
 		return getAllWishlist(requestBody);
 	}
-
-	public void addBookToWishlist() {
-		// TODO: implement this method
-	}
-
-	public void removeBookFromWishlist() {
-		// TODO: implement this method
-	}
-
-	public void getWishlist() {
-		// TODO: implement this method
-	}
-
-    @Override
-    public HashMap<String, Object> getWishlistById(int id) {
-        // TODO
-    }
 }

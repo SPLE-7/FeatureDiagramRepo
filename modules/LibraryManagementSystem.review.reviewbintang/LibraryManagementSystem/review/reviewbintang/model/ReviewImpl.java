@@ -41,16 +41,4 @@ public class ReviewImpl extends ReviewDecorator {
 	public void setStarValue(int starValue) {
 		this.starValue = starValue;
 	}
-
-
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
-    }
 }

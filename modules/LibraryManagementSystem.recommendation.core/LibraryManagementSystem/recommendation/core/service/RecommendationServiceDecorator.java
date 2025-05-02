@@ -10,10 +10,6 @@ public abstract class RecommendationServiceDecorator extends RecommendationServi
         this.record = record;
     }
 
-	// public HashMap<String, Object> getRecommendation(Map<String, Object> requestBody){
-	// 	return record.getRecommendation(requestBody);
-	// }
-
 	public List<HashMap<String,Object>> getAllRecommendation(Map<String, Object> requestBody){
 		return record.getAllRecommendation(requestBody);
 	}

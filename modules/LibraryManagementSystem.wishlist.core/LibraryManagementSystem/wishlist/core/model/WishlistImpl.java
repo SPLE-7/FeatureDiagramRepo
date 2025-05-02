@@ -14,34 +14,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import LibraryManagementSystem.buku.core.Buku;
 
 @Entity(name = "wishlist_impl")
 @Table(name = "wishlist_impl")
 public class WishlistImpl extends WishlistComponent {
 
-    public WishlistImpl(AkunImpl akunimpl, BukuImpl daftarbukuimpl) {
+    public WishlistImpl(User akunimpl, Buku daftarbukuimpl) {
         this.akunimpl = akunimpl;
         this.daftarbukuimpl = daftarbukuimpl;
-        this.id = UUID.randomUUID();
+        this.idWishlist = UUID.randomUUID();
     }
 
     public WishlistImpl() {
-        this.id = UUID.randomUUID();
-    }
-
-    @Override
-    public void addBookToWishlist() {
-        // TODO: implement this method
-    }
-
-    @Override
-    public void removeBookFromWishlist() {
-        // TODO: implement this method
-    }
-
-    @Override
-    public void getWishlist() {
-        // TODO: implement this method
+        this.idWishlist = UUID.randomUUID();
     }
 
     @Override
@@ -50,25 +36,5 @@ public class WishlistImpl extends WishlistComponent {
         wishlistMap.put("akunimpl", getAkunimpl());
         wishlistMap.put("daftarbukuimpl", getDaftarbukuimpl());
         return wishlistMap;
-    }
-
-    @Override
-    public User getAkunimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setAkunimpl(User akunimpl) {
-        // TODO
-    }
-
-    @Override
-    public Buku getDaftarbukuimpl() {
-        // TODO
-    }
-
-    @Override
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-        // TODO
     }
 }
