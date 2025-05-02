@@ -19,6 +19,7 @@ import vmj.auth.annotations.Restricted;
 //add other required packages
 
 import LibraryManagementSystem.buku.core.Buku;
+import vmj.auth.model.core;
 
 public class WishlistServiceImpl extends WishlistServiceComponent{
 
@@ -26,7 +27,7 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 		
 		// TODO: MASIH BINGUNG
 		User akunimpl = userRepository.getObject(requestBody.get("id"));
-		Buku daftarbukuimpl = bukuRepository.getObject(requestBody.get("idBuku"));
+		Buku daftarbukuimpl = bukuRepository.getObject(UUID.fromString((String) requestBody.get("idBuku")));
 		//to do: fix association attributes
 		Wishlist wishlist = WishlistFactory.createWishlist(
 			"LibraryManagementSystem.wishlist.core.WishlistImpl",
@@ -37,10 +38,10 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 	}
 
     public HashMap<String, Object> getWishlist(Map<String, Object> requestBody){
-		List<HashMap<String, Object>> wishlistList = getAllWishlist("wishlist_impl");
+		List<HashMap<String, Object>> wishlistList = getAllWishlist(requestBody);
 		for (HashMap<String, Object> wishlist : wishlistList){
 			UUID recordId = UUID.fromString((String) wishlist.get("idWishlist"));
-			if (record_id.equals(requestBody.get("idWishlist"))){
+			if (recordId.equals(requestBody.get("idWishlist"))){
 				return wishlist;
 			}
 		}

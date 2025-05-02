@@ -4,6 +4,7 @@ import vmj.routing.route.VMJExchange;
 import java.util.*;
 
 import LibraryManagementSystem.buku.core.Buku;
+import vmj.auth.model.core;
 
 public interface Wishlist {
     User getAkunimpl();

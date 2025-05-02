@@ -13,17 +13,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import LibraryManagementSystem.buku.core.Buku;
+import vmj.auth.model.core;
 
 @Entity
 @Table(name = "wishlist_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class WishlistComponent implements Wishlist {
     @Id
-    @GeneratedValue
     public UUID idWishlist;
 
 	// TODO: Import external library 
-    @ManyToOne(targetEntity = LibraryManagementSystem.user.core.UserComponent.class)
+    @ManyToOne(targetEntity = vmj.auth.model.core.UserComponent.class)
     public User akunimpl;
 
     @ManyToOne(targetEntity = LibraryManagementSystem.buku.core.BukuComponent.class)

@@ -18,13 +18,15 @@ import LibraryManagementSystem.review.ReviewFactory;
 import vmj.auth.annotations.Restricted;
 //add other required packages
 
+import java.time.LocalDate;
+
 import LibraryManagementSystem.buku.core.Buku;
 
 public class ReviewServiceImpl extends ReviewServiceComponent{
 
     public Review createReview(Map<String, Object> requestBody){
-		Buku daftarbukuimpl = bukuRepository.getObject(requestBody.get("idBuku"));
-		Date postedAt = Date.now();
+		Buku daftarbukuimpl = bukuRepository.getObject(UUID.fromString((String) requestBody.get("idBuku")));
+		LocalDate postedAt = LocalDate.now();
 		//to do: fix association attributes
 		Review review = ReviewFactory.createReview(
 			"LibraryManagementSystem.review.core.ReviewImpl"
@@ -36,10 +38,10 @@ public class ReviewServiceImpl extends ReviewServiceComponent{
 	}
 
     public HashMap<String, Object> getReview(Map<String, Object> requestBody){
-		List<HashMap<String, Object>> reviewList = getAllReview("review_impl");
+		List<HashMap<String, Object>> reviewList = getAllReview(requestBody);
 		for (HashMap<String, Object> review : reviewList){
 			UUID recordId = UUID.fromString((String) review.get("idReview"));
-			if (record_id.equals(requestBody.get("idReview"))){
+			if (recordId.equals(requestBody.get("idReview"))){
 				return review;
 			}
 		}

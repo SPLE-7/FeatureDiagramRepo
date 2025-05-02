@@ -10,12 +10,10 @@ import LibraryManagementSystem.buku.core.Buku;
 public abstract class ReviewServiceComponent implements ReviewService{
 	protected RepositoryUtil<Review> reviewRepository;
     protected RepositoryUtil<Buku> bukuRepository;
-    protected RepositoryUtil<User> userRepository;
 
     public ReviewServiceComponent(){
         this.reviewRepository = new RepositoryUtil<Review>(LibraryManagementSystem.review.core.ReviewComponent.class);
         this.bukuRepository = new RepositoryUtil<Buku>(LibraryManagementSystem.buku.core.BukuComponent.class);
-        this.userRepository = new RepositoryUtil<User>(LibraryManagementSystem.user.core.UserComponent.class);
     }	
 
     public abstract Review createReview(Map<String, Object> requestBodye);

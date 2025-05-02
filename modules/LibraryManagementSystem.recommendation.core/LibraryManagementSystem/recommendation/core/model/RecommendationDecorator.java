@@ -28,11 +28,6 @@ public abstract class RecommendationDecorator extends RecommendationComponent{
 		this.objectName=objectName;
 	}
 
-
-	public void getRecommendation() {
-		System.out.println("");
-	}
-
 	public HashMap<String, Object> toHashMap() {
         return this.record.toHashMap();
     }

@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import LibraryManagementSystem.buku.core.Buku;
+import vmj.auth.model.core;
 
 @Entity
 @Table(name="peminjamanbuku_comp")
@@ -23,7 +24,7 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	protected String status;
 
 	// AMBIL DARI EXTERNAL LIBRARY
-	@ManyToOne(targetEntity=LibraryManagementSystem.user.core.UserComponent.class)
+	@ManyToOne(targetEntity=vmj.auth.model.core.UserComponent.class)
 	public User akunimpl;
 
 	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)

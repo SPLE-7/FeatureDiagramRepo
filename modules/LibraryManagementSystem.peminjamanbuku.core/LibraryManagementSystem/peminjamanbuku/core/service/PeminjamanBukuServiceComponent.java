@@ -6,6 +6,7 @@ import vmj.routing.route.VMJExchange;
 //add other required packages
 
 import LibraryManagementSystem.buku.core.Buku;
+import vmj.auth.model.core;
 
 public abstract class PeminjamanBukuServiceComponent implements PeminjamanBukuService{
 	protected RepositoryUtil<PeminjamanBuku> peminjamanRepository;
@@ -15,7 +16,7 @@ public abstract class PeminjamanBukuServiceComponent implements PeminjamanBukuSe
     public PeminjamanBukuServiceComponent(){
         this.peminjamanRepository = new RepositoryUtil<PeminjamanBuku>(LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuComponent.class);
         this.bukuRepository = new RepositoryUtil<Buku>(LibraryManagementSystem.buku.core.BukuComponent.class);
-        this.userRepository = new RepositoryUtil<User>(LibraryManagementSystem.user.core.UserComponent.class);
+        this.userRepository = new RepositoryUtil<User>(vmj.auth.model.core.UserComponent.class);
     }	
 
     public abstract PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBodye);

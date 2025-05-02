@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import LibraryManagementSystem.buku.core.Buku;
+import vmj.auth.model.core;
 
 @Entity(name="peminjamanbuku_impl")
 @Table(name="peminjamanbuku_impl")

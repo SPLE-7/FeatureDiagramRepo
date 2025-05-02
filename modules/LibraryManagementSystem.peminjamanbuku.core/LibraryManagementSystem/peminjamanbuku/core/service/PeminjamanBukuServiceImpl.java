@@ -20,12 +20,13 @@ import java.time.LocalDate;
 import java.util.Map;
 
 import LibraryManagementSystem.buku.core.Buku;
+import vmj.auth.model.core;
 
 public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 
     public PeminjamanBuku createPeminjamanBuku(Map<String, Object> requestBody) {
 		String status = (String) requestBody.get("status");
-		Buku daftarbukuimpl = bukuRepository.getObject(requestBody.get("idBuku"));
+		Buku daftarbukuimpl = bukuRepository.getObject(UUID.fromString((String) requestBody.get("idBuku")));
 		
 		// Perhatikan nama id user yang dipakai di frontend atau API
 		User akunimpl = userRepository.getObject(requestBody.get("id"));
@@ -42,16 +43,16 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 			tanggalPengembalian
 		);
 	
-		Repository.saveObject(peminjamanbuku);
+		peminjamanRepository.saveObject(peminjamanbuku);
 		return peminjamanbuku;
 	}
 
     public HashMap<String, Object> getPeminjamanBuku(Map<String, Object> requestBody){
-		List<HashMap<String, Object>> peminjamanbukuList = getAllPeminjamanBuku("peminjamanbuku_impl");
+		List<HashMap<String, Object>> peminjamanbukuList = getAllPeminjamanBuku(requestBody);
 		for (HashMap<String, Object> peminjamanbuku : peminjamanbukuList){
 
 			UUID recordId = UUID.fromString((String) peminjamanbuku.get("idPeminjamanBuku"));
-			if (record_id.equals(requestBody.get("idPeminjamanBuku"))){
+			if (recordId.equals(requestBody.get("idPeminjamanBuku"))){
 				return peminjamanbuku;
 			}
 		}
@@ -60,7 +61,7 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 
     public List<HashMap<String,Object>> getAllPeminjamanBuku(Map<String, Object> requestBody){
 		String table = (String) requestBody.get("table_name");
-		List<PeminjamanBuku> List = Repository.getAllObject(table);
+		List<PeminjamanBuku> List = peminjamanRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}
 

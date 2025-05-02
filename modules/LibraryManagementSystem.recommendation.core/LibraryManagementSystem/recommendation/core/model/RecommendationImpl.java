@@ -25,12 +25,6 @@ public class RecommendationImpl extends RecommendationComponent {
 	}
 
 	public RecommendationImpl() { }
-
-
-	public void getRecommendation() {
-		// TODO: implement this method
-        System.out.println("");
-	}
 	
 	public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> recommendationMap = new HashMap<String,Object>();

@@ -5,6 +5,7 @@ import vmj.hibernate.integrator.RepositoryUtil;
 import vmj.routing.route.VMJExchange;
 
 import LibraryManagementSystem.buku.core.Buku;
+import vmj.auth.model.core;
 
 public abstract class WishlistServiceComponent implements WishlistService{
 	protected RepositoryUtil<Wishlist> wishlistRepository;
@@ -15,7 +16,7 @@ public abstract class WishlistServiceComponent implements WishlistService{
     public WishlistServiceComponent(){
         this.wishlistRepository = new RepositoryUtil<Wishlist>(LibraryManagementSystem.wishlist.core.WishlistComponent.class);
         this.bukuRepository = new RepositoryUtil<Buku>(LibraryManagementSystem.buku.core.BukuComponent.class);
-        this.userRepository = new RepositoryUtil<User>(LibraryManagementSystem.user.core.UserComponent.class);
+        this.userRepository = new RepositoryUtil<User>(vmj.auth.model.core.UserComponent.class);
     }	
 
     public abstract Wishlist createWishlist(Map<String, Object> requestBodye);
