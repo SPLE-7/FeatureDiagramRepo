@@ -12,7 +12,7 @@ public abstract class StatistikServiceComponent implements StatistikService{
 
     public StatistikServiceComponent(){
         this.statistikRepository = new RepositoryUtil<Statistik>(LibraryManagementSystem.statistik.core.StatistikComponent.class);
-        this.bukuRepository = new RepositoryUtil<Buku>(LibraryManagementSystem.buku.core.BukuComponent.class);
+        this.bukuRepository = new RepositoryUtil<Buku>(LibraryManagementSystem.statistik.core.StatistikComponent.class);
     }	
 
     public abstract List<HashMap<String,Object>> getAllStatistik(Map<String, Object> requestBody);
